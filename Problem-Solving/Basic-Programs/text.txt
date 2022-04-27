@@ -1,0 +1,6 @@
+The Arrays.sort() method sorts the array of objects or primitives.
+The sorting algorithm used in this method is Dual-Pivot Quicksort.
+In other words, it is a custom implementation of the Quicksort algorithm to achieve better performance.
+This method is single-threaded and there are two variants:
+sort(array) – sorts the full array into ascending order
+sort(array, fromIndex, toIndex) – sorts only the elements from fromIndex to toIndex.
