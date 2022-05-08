@@ -36,7 +36,7 @@ class Solution {
         
         return false;
     }
-}
+}N
 
 class Solution {
     public boolean containsDuplicate(int[] nums) {

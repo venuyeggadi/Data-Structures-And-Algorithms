@@ -73,7 +73,7 @@ class Solution {
 using a dummy head node to avoid special case if the element to be added is
 the first element of the list.
 */
-class Solution {
+class Solution1 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, curr = dummyHead;
