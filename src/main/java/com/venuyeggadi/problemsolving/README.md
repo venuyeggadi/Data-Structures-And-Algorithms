@@ -2,12 +2,12 @@
 
 #### Refer DSA in Java book, YouTube videos, GFG articles for topics.
 #### Use LeetCode discuss, GFG articles for solutions.
-#### Curently following [NeetCode](https://neetcode.io/)
+#### Currently, following [NeetCode](https://neetcode.io/)
 #### Later [Seanprasad leetcode patterns](https://seanprashad.com/leetcode-patterns/), [Striver SDE sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
-
+  
 ## Arrays and Hashing
-  * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - Solution
-  * [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+  * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/ContainsDuplicate.java)
+  * [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/ValidAnagram.java)
   * [Two Sum](https://leetcode.com/problems/two-sum/) - Solution
   * [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - Solution
   * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Solution
