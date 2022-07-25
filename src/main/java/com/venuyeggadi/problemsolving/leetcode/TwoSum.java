@@ -1,7 +1,7 @@
 package com.venuyeggadi.problemsolving.leetcode;
 
 
-/**
+/*
  * Given an array of integers nums and an integer target, return indices of the two numbers
    such that they add up to target.
  * You may assume that each input would have exactly one solution, and you may not use the same
@@ -37,32 +37,32 @@ import java.util.Map;
 class TwoSumSolution1 {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
-        int i = 0, j = 0;
-        for(i = 0; i < nums.length - 1; i++) {
-            for(j = i + 1; j < nums.length; j++) {
-                if(nums[i] + nums[j] == target) {
-                    found  = true;
+        int i, j = 0;
+        for (i = 0; i < nums.length - 1; i++) {
+            for (j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    found = true;
                     break;
                 }
             }
-            if(found)
+            if (found)
                 break;
         }//we can also use labelled for loop to exit the outer loop directly
-        return new int[]{i,j};
+        return new int[]{i, j};
     }
 }
+
 //Same Bruteforce with optimised return statement
 class TwoSumSolution1WithBetterReturnStatement {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
-        int i = 0, j = 0;
-        for(i = 0; i < nums.length - 1; i++) {
-            for(j = i + 1; j < nums.length; j++) {
-            	if(nums[i] + nums[j] == target)
-            		return new int[]{i, j};
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target)
+                    return new int[]{i, j};
             }
         }
-    
+
         return new int[]{-1, -1};
     }
 }
@@ -70,22 +70,23 @@ class TwoSumSolution1WithBetterReturnStatement {
 
 // solution 2
 //Using HashMap(Dictionary) Time : O(n), Space : O(n)
+
 /**
  * Time complexity : O(n). We traverse the list containing n elements only once.
-       Each look up in the Hash table costs only O(1) time.
+ * Each look up in the Hash table costs only O(1) time.
  * Space complexity : O(n). The extra space required depends on the number of
-       items stored in the hash table, which stores at most n elements.
-*/
+ * items stored in the hash table, which stores at most n elements.
+ */
 class TwoSumSolution2 {
     public int[] twoSum(int[] nums, int target) {
-    	Map<Integer, Integer> map = new HashMap<>();
-    	int complement;
-        for(int index = 0; index < nums.length; index++) {
-        	complement = target - nums[index];
-        	if(map.containsKey(complement))
-        		return new int[]{ map.get(complement), index };
-        	//else (optional);
-        	map.put(nums[index], index);
+        Map<Integer, Integer> map = new HashMap<>();
+        int complement;
+        for (int index = 0; index < nums.length; index++) {
+            complement = target - nums[index];
+            if (map.containsKey(complement))
+                return new int[]{map.get(complement), index};
+            //else (optional);
+            map.put(nums[index], index);
         }
         return null;
     }

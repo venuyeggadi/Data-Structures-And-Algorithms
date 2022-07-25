@@ -9,8 +9,8 @@
   * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/ContainsDuplicate.java)
   * [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/ValidAnagram.java)
   * [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/TwoSum.java)
-  * [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - Solution
-  * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - Solution
+  * [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - [Solution](./leetcode/GroupAnagrams.java)
+  * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/TopKFrequentElements.java)
   * [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - Solution
   * [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) - Solution
   * [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) - Solution
