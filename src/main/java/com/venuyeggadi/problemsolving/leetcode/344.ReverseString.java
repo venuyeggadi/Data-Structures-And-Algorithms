@@ -1,4 +1,5 @@
-package com.venuyeggadi.problemsolving.leetcode;/*
+package com.venuyeggadi.problemsolving.leetcode;
+/*
  * Write a function that reverses a string. The input string is given as an
  array of characters s.
  
@@ -72,8 +73,8 @@ class ReverseStringSolution2 {
 
 
 //#3
-//Two poniter approach
-//Generalization of #1
+//Two pointer approach
+//Generalization of approach #1
 // O(n), O(1)
 class ReverseStringSolution3 {
     public void reverseString(char[] s) {

@@ -3,8 +3,9 @@
 #### Refer DSA in Java book, YouTube videos, GFG articles for topics.
 #### Use LeetCode discuss, GFG articles for solutions.
 #### Currently, following [NeetCode](https://neetcode.io/)
-#### Later [Seanprasad leetcode patterns](https://seanprashad.com/leetcode-patterns/), [LeetCode 75](https://leetcode.com/study-plan/leetcode-75/), [Striver SDE sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/)
-  
+#### Later [Seanprasad leetcode patterns](https://seanprashad.com/leetcode-patterns/), [LeetCode 75](https://leetcode.com/study-plan/leetcode-75/), [Striver SDE sheet](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/), [CSES Problem Set](https://cses.fi/problemset/), [Codeforces Edu](https://codeforces.com/edu/courses)
+
+
 ## Arrays and Hashing
 * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/ContainsDuplicate.java)
 * [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/ValidAnagram.java)
@@ -19,10 +20,10 @@
 
 ## Two Pointers
 * [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) - [Solution](./leetcode/ValidPalindrome.java)
-* [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution]
-* [3Sum](https://leetcode.com/problems/3sum/) - [Solution]
-* [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution]
-* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution]
+* [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution](./leetcode/TwoSumII.java)
+* [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/ThreeSum.java)
+* [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/ContainerWithMostWater.java)
+* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/TrappingRainWater.java)
 
 ## Sliding Window
 * [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution]
@@ -31,7 +32,6 @@
 * [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution]
 * [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - [Solution]
 * [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - [Solution]
-
 
 ## Linked List
 * [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - [Solution]
@@ -57,6 +57,7 @@
 
 ## Queue
 * Search and Solve problems on Queues.
+* [Leetcode Explore - Queue & Stack](https://leetcode.com/explore/learn/card/queue-stack/)
 
 ## Binary Search - Searching
 * [Binary Search](https://leetcode.com/problems/binary-search/) - [Solution]
@@ -66,13 +67,16 @@
 * [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - [Solution]
 * [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) - [Solution]
 * [Find Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - [Solution]
-* []() - [Solution]
+* [Leetcode Study Plan - Binary Search](https://leetcode.com/study-plan/binary-search/)
 
 ## Sorting
 * Learn all the sorting techniques.
+* [Leetcode Explore card - Sorting](https://leetcode.com/explore/learn/card/sorting/)
 
 
 ## Recursion & Backtracking
+* [Leetcode Explore - Recursion I](https://leetcode.com/explore/featured/card/recursion-i/)
+* [Leetcode Explore - Recursion II](https://leetcode.com/explore/learn/card/recursion-ii/)
 * [Subsets](https://leetcode.com/problems/subsets/) - [Solution]
 * [Combination Sum](https://leetcode.com/problems/combination-sum/) - [Solution]
 * [Permutations](https://leetcode.com/problems/permutations/) - [Solution]
@@ -105,6 +109,7 @@
 * [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/) - [Solution]
 * [Design Add and Search Word Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) - [Solution]
 * [Word Search II](https://leetcode.com/problems/word-search-ii/) - [Solution]
+* [Leetcode Explore - Trie](https://leetcode.com/explore/learn/card/trie/)
 
 ## Heap / Priority Queue
 * [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) - [Solution]
@@ -116,6 +121,7 @@
 * [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) - [Solution]
 
 ## Graphs
+* [William Fiset Graphs Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
 * [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution]
 * [Clone Graph](https://leetcode.com/problems/clone-graph/) - [Solution]
 * [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) - [Solution]
@@ -129,6 +135,7 @@
 * [Number of Connected Components in Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) - [Solution]
 * [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) - [Solution]
 * [Word Ladder](https://leetcode.com/problems/word-ladder/) - [Solution]
+* [Leetcode Study Plan - Graph Theory](https://leetcode.com/study-plan/graph/)
 
 ## Advanced Graphs
 * [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) - [Solution]
@@ -164,6 +171,7 @@
 * [Edit Distance](https://leetcode.com/problems/edit-distance/) - [Solution]
 * [Burst Balloons](https://leetcode.com/problems/burst-balloons/) - [Solution]
 * [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/) - [Solution]
+* [Leetcode Study Plan - Dynamic Programming](https://leetcode.com/study-plan/dynamic-programming/)
 
 ## Greedy
 * [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) - [Solution]
