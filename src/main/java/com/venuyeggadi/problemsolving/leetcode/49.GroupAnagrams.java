@@ -31,8 +31,10 @@ import java.util.*;
 Bruteforce
 Time complexity: O(k.n^2)
     where n = |strs| and k = ∣strs[i]∣ = average length of a string
+    and in the best case O(k.n) when every anagram belongs to same group.
 Space complexity: O(n)
     for the boolean array.
+
 
 Note: we are not considering the space used by result list.
  */
@@ -87,7 +89,7 @@ Time complexity: O(n.k.log(k))
 Space complexity: O(n.k)
     for the charArray created at each iteration.
  */
-class Solution {
+class GroupAnagramsSolution2 {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
 

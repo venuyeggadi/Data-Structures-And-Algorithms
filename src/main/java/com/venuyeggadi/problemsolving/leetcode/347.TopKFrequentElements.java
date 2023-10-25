@@ -25,7 +25,7 @@ package com.venuyeggadi.problemsolving.leetcode;
 import java.util.*;
 
 
-// Solution 1
+// TopKFrequentElementsSolution1
 /*
 Time complexity: O(n + n + nlog(n)) = O(nlog(n))
 Space complexity: O(n + n + n) = O(n)
@@ -62,7 +62,7 @@ class TopKFrequentElementsSolution1 {
 }
 
 
-// Solution 2
+// TopKFrequentElementsSolution2
 /*
 Time complexity: O(nlog(k))
 Space complexity: O(n)
@@ -114,7 +114,7 @@ class TopKFrequentElementsSolution3 {
         for (int num : nums)
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
 
-        ArrayList<Integer>[] arr = new ArrayList[nums.length + 1];
+        ArrayList<Integer>[] arr = new ArrayList<>[nums.length + 1];
         for (int key : frequencyMap.keySet()) {
             int frequency = frequencyMap.get(key);
             if (arr[frequency] == null)

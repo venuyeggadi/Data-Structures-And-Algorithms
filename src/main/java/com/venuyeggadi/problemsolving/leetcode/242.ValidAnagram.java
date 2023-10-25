@@ -30,6 +30,7 @@ Using HashMap
 Time Complexity: O(n)
 Space Complexity: O(n)
 Where n is length of the longest string.
+This works well with unicode characters as well
  */
 class ValidAnagramSolution1 {
     public boolean isAnagram(String s, String t) {
@@ -66,6 +67,7 @@ class ValidAnagramSolution2 {
             return false;
         int[] freqS = new int[26];
         int[] freqT = new int[26];
+        // the array length is same as we already checked
         for (int i = 0; i < s.length(); i++) {
             freqS[s.charAt(i) - 'a']++;
             freqT[t.charAt(i) - 'a']++;
@@ -107,6 +109,46 @@ class ValidAnagramSolution2Way3 {
 
         for (int i = 0; i < 26; i++)
             if (freq[i] != 0)
+                return false;
+
+        return true;
+    }
+}
+
+// To include unicode characters just increase the size of the array to match the number of possibilities
+class ValidAnagramSolution2Way4 {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        int[] freq = new int[128];
+
+        for (char ch : s.toCharArray())
+            freq[ch]++;
+
+        for (char ch : t.toCharArray())
+            freq[ch]--;
+
+        for (int count : freq)
+            if (count != 0)
+                return false;
+
+        return true;
+    }
+}
+
+// While decreasing the frequency while traversing through second array, If the count is less than zero at any time, return false.
+// Because, it means that second array has more occurrences of a character than that of first array
+class ValidAnagramSolution2Way5 {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        int[] freq = new int[128];
+
+        for (char ch : s.toCharArray())
+            ++freq[ch];
+
+        for (final char c : t.toCharArray())
+            if (--freq[c] < 0)
                 return false;
 
         return true;

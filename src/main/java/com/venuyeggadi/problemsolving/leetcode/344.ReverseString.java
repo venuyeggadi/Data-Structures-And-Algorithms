@@ -1,22 +1,23 @@
 package com.venuyeggadi.problemsolving.leetcode;
 /*
+ * 344. Reverse String
  * Write a function that reverses a string. The input string is given as an
- array of characters s.
+   array of characters s.
  
  * Example 1:
    Input: s = ["h","e","l","l","o"]
    Output: ["o","l","l","e","h"]
  
- *Example 2:
-  Input: s = ["H","a","n","n","a","h"]
-  Output: ["h","a","n","n","a","H"]
+ * Example 2:
+   Input: s = ["H","a","n","n","a","h"]
+   Output: ["h","a","n","n","a","H"]
 
  * Constraints:
    * 1 <= s.length <= 105
    * s[i] is a printable ascii character.
  
- *Follow up: Do not allocate extra space for another array. You must do this by
-  modifying the input array in-place with O(1) extra memory.
+ * Follow up: Do not allocate extra space for another array. You must do this by
+   modifying the input array in-place with O(1) extra memory.
  */
 
 //#1
@@ -67,6 +68,20 @@ class ReverseStringSolution2 {
             s[end] = temp;
             reverse(s, start + 1, end - 1);
         }
+    }
+    */
+
+    /* by passing a single extra variable
+    public void reverse(char[] s, int index) {
+        int length = s.length;
+        if (index >= length / 2)
+            return;
+
+        char temp = s[index];
+        s[index] = s[length - 1 - index];
+        s[length - 1 - index] = temp;
+
+        reverse(index + 1, s);
     }
     */
 }

@@ -7,11 +7,11 @@
 
 
 ## Arrays and Hashing
-* [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/ContainsDuplicate.java)
-* [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/ValidAnagram.java)
-* [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/TwoSum.java)
-* [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - [Solution](./leetcode/GroupAnagrams.java)
-* [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/TopKFrequentElements.java)
+* [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/217.ContainsDuplicate.java)
+* [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/242.ValidAnagram.java)
+* [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/1.TwoSum.java)
+* [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - [Solution](./leetcode/49.GroupAnagrams.java)
+* [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/347.TopKFrequentElements.java)
 * [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - [Solution](./leetcode/ProductOfArrayExceptSelf.java)
 * [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) - [Solution](./leetcode/ValidSudoku.java)
 * [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) - [Solution](./leetcode/EnocodeAndDecodeStrings.java)
