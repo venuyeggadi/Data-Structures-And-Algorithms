@@ -25,7 +25,7 @@ package com.venuyeggadi.problemsolving.leetcode;
 import java.util.*;
 
 
-// TopKFrequentElementsSolution1
+// Solution 1
 /*
 Time complexity: O(n + n + nlog(n)) = O(nlog(n))
 Space complexity: O(n + n + n) = O(n)
@@ -33,72 +33,56 @@ Note: Mergesort - O(nlog(n)), O(n)
  */
 class TopKFrequentElementsSolution1 {
     public int[] topKFrequent(int[] nums, int k) {
+        if (k == nums.length) {
+            return nums;
+        }
+
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums)
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
 
-        ArrayList<Pair> freqList = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet())
-            freqList.add(new Pair(entry.getKey(), entry.getValue()));
+        ArrayList<Integer> uniqueNumList = new ArrayList<>(frequencyMap.keySet());
 
-        freqList.sort((a, b) -> b.frequency - a.frequency);
+        uniqueNumList.sort((a, b) -> frequencyMap.get(b) - frequencyMap.get(a));
 
         int[] result = new int[k];
         for (int i = 0; i < k; i++)
-            result[i] = freqList.get(i).number;
+            result[i] = uniqueNumList.get(i);
 
         return result;
-    }
-
-    private static class Pair {
-        public int number;
-        public int frequency;
-
-        public Pair(int number, int frequency) {
-            this.number = number;
-            this.frequency = frequency;
-        }
     }
 }
 
 
-// TopKFrequentElementsSolution2
+// Solution 2
 /*
 Time complexity: O(nlog(k))
-Space complexity: O(n)
+Space complexity: O(n + k)
  */
 
-class Solution {
+class TopKFrequentElementsSolution2 {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
-        for (int num : nums)
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        if (k == nums.length) {
+            return nums;
+        }
 
-        Queue<Pair> minHeap = new PriorityQueue<>((a, b) -> a.frequency - b.frequency);
+        Map<Integer, Integer> numToCount = new HashMap<>();
+        for (int number : nums) {
+            numToCount.put(number, numToCount.getOrDefault(number, 0) + 1);
+        }
 
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            final int num = entry.getKey();
-            final int freq = entry.getValue();
-            minHeap.offer(new Pair(num, freq));
+        Queue<Integer> minHeap = new PriorityQueue<>((a, b) -> numToCount.get(a) - numToCount.get(b));
+        for (int key : numToCount.keySet()) {
+            minHeap.offer(key);
             if (minHeap.size() > k)
                 minHeap.poll();
         }
 
         int[] result = new int[k];
-        for (int i = 0; i < k; ++i)
-            result[i] = minHeap.poll().number;
+        for (int i = 0; i < k; i++)
+            result[i] = minHeap.poll();
 
         return result;
-    }
-
-    private static class Pair {
-        public int number;
-        public int frequency;
-
-        public Pair(int number, int frequency) {
-            this.number = number;
-            this.frequency = frequency;
-        }
     }
 }
 
@@ -114,18 +98,18 @@ class TopKFrequentElementsSolution3 {
         for (int num : nums)
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
 
-        ArrayList<Integer>[] arr = new ArrayList<>[nums.length + 1];
+        List<Integer>[] frequencyBuckets = new ArrayList[nums.length + 1];
         for (int key : frequencyMap.keySet()) {
             int frequency = frequencyMap.get(key);
-            if (arr[frequency] == null)
-                arr[frequency] = new ArrayList<>();
-            arr[frequency].add(key);
+            if (frequencyBuckets[frequency] == null)
+                frequencyBuckets[frequency] = new ArrayList<>();
+            frequencyBuckets[frequency].add(key);
         }
 
         List<Integer> resultList = new ArrayList<>();
-        for (int i = arr.length-1; resultList.size() < k; i--) {
-            if (arr[i] != null) {
-                resultList.addAll(arr[i]);
+        for (int i = frequencyBuckets.length-1; resultList.size() < k; i--) {
+            if (frequencyBuckets[i] != null) {
+                resultList.addAll(frequencyBuckets[i]);
             }
         }
 
@@ -134,5 +118,69 @@ class TopKFrequentElementsSolution3 {
             result[i] = resultList.get(i);
 
         return result;
+    }
+}
+
+
+class TopKFrequentElementsSolution4 {
+    private int[] unique;
+    private Map<Integer, Integer> count;
+
+    public int[] topKFrequent(int[] nums, int k) {
+        count = new HashMap();
+        for (int num: nums) {
+            count.put(num, count.getOrDefault(num, 0) + 1);
+        }
+
+        int n = count.size();
+        unique = new int[n];
+        int i = 0;
+        for (int num: count.keySet()) {
+            unique[i] = num;
+            i++;
+        }
+
+        quickselect(0, n - 1, n - k);
+        return Arrays.copyOfRange(unique, n - k, n);
+    }
+
+    private void quickselect(int left, int right, int kThIndexFromRight) {
+        if (left == right) return;
+
+        Random random = new Random();
+        int pivotIndex = left + random.nextInt(right - left);
+
+        pivotIndex = partition(left, right, pivotIndex);
+
+        if (kThIndexFromRight == pivotIndex) {
+            return;
+        } else if (kThIndexFromRight < pivotIndex) {
+            quickselect(left, pivotIndex - 1, kThIndexFromRight);
+        } else {
+            quickselect(pivotIndex + 1, right, kThIndexFromRight);
+        }
+    }
+
+    private int partition(int left, int right, int pivotIndex) {
+        int pivotFrequency = count.get(unique[pivotIndex]);
+        swap(pivotIndex, right);
+        int storeIndex = left;
+
+        for (int i = left; i <= right; i++) {
+            if (count.get(unique[i]) < pivotFrequency) {
+                swap(storeIndex, i);
+                storeIndex++;
+            }
+        }
+
+        swap(storeIndex, right);
+
+        return storeIndex;
+    }
+
+    private void swap(int a, int b) {
+        int tmp = unique[a];
+        unique[a] = unique[b];
+        unique[b] = tmp;
     }
 }
