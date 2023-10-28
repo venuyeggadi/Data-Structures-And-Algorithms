@@ -29,7 +29,7 @@ import java.util.Set;
 By sorting
 Time complexity: O(nlog(n) + n) = O(nlog(n))
 Space complexity: O(1)
-Note: If make a copy of the given array instead of sorting in-place, space complexity = O(n)
+Note: If we make a copy of the given array instead of sorting in-place, space complexity = O(n)
  */
 class LongestConsecutiveSequenceSolution1 {
     public int longestConsecutive(int[] nums) {
@@ -98,7 +98,7 @@ class LongestConsecutiveSequenceSolution2 {
 By sorting
 Time complexity: O(n)
 Space complexity: O(n)
-Note: If make a copy of the given array instead of sorting in-place, space complexity = O(n)
+Note: If we make a copy of the given array instead of sorting in-place, space complexity = O(n)
  */
 class LongestConsecutiveSequenceSolution3 {
     public int longestConsecutive(int[] nums) {

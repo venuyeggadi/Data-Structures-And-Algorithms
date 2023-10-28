@@ -57,7 +57,7 @@ import java.util.Set;
 /*
 Bruteforce
 Time complexity: O(9^2 * 9^2 * 3^4) = O(1)
-Space complexity: O(9 + 9 + 9) = O(1)
+Space complexity: O(9^2 + 9^2 + 9^2) = O(1)
  */
 class ValidSudokuSolution {
     public boolean isValidSudoku(char[][] board) {

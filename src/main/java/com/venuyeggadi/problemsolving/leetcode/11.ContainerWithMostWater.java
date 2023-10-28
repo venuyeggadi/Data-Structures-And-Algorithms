@@ -42,8 +42,6 @@ class ContainerWithMostWaterSolution1 {
             for (int right = left + 1; right < length; right++) {
                 int area = (right - left) * Math.min(height[left], height[right]);
                 maxArea = Math.max(maxArea, area);
-                if (height[left] < height[right]) ++left;
-                else --right;
             }
         }
 
@@ -61,9 +59,8 @@ Space complexity: O(1)
 
 class ContainerWithMostWaterSolution2 {
     public int maxArea(int[] height) {
-        int length = height.length;
-        int left = 0;
-        int right = length - 1;
+        int left = 0, right = height.length - 1;
+
         int maxArea = 0;
 
         while (left < right) {
@@ -71,6 +68,32 @@ class ContainerWithMostWaterSolution2 {
             maxArea = Math.max(maxArea, area);
             if (height[left] < height[right]) ++left;
             else --right;
+        }
+
+        return maxArea;
+    }
+}
+
+class ContainerWithMostWaterSolution2Better {
+    public int maxArea(int[] height) {
+        int startIndex = 0, endIndex = height.length - 1;
+
+        int maxArea = 0;
+
+        while (startIndex < endIndex) {
+            int length = Math.min(height[startIndex], height[endIndex]);
+            int width = (endIndex - startIndex);
+            int area = width * length;
+            maxArea = Math.max(area, maxArea);
+
+            if (height[startIndex] <= height[endIndex]) {
+                while(height[startIndex] <= length && startIndex < endIndex)
+                    startIndex++;
+            }
+            else {
+                while(height[endIndex] <= length && startIndex < endIndex)
+                    endIndex--;
+            }
         }
 
         return maxArea;

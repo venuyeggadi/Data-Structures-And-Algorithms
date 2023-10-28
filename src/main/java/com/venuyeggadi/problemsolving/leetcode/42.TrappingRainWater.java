@@ -130,4 +130,28 @@ Using two pointers
 Time complexity: O(n)
 Space complexity: O(1)
  */
+class Solution {
+
+    public int trap(int[] heights) {
+        if (heights.length == 0) return 0;
+
+        int left = 0, right = heights.length - 1;
+        int leftMax = heights[left], rightMax = heights[right];
+        int res = 0;
+
+        while (left < right) {
+            if (leftMax < rightMax) {
+                res += leftMax - heights[left];
+                left++;
+                leftMax = Math.max(leftMax, heights[left]);
+            } else {
+                res += rightMax - heights[right];
+                right--;
+                rightMax = Math.max(rightMax, heights[right]);
+            }
+        }
+
+        return res;
+    }
+}
 

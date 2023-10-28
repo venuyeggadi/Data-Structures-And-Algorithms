@@ -138,13 +138,13 @@ class ValidPalindromeSolution4 {
     }
 }
 // Note that the toLowerCase method can be written as below
-class Temp {
+class Util {
     static char toLowerCase(char ch) {
         char diff = 'a' - 'A';
         return ch < 'A' || ch > 'Z' ? ch : (char)(ch + diff);
     }
 
-    private static boolean isAlphaNumeric(char ch) {
+    static boolean isAlphaNumeric(char ch) {
         return (ch <= 'z' && ch >= 'a') || ch <= 'Z' && ch >= 'A' || (ch >= '0' && ch <= '9');
     }
 }

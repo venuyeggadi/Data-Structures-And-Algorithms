@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Solution 1
-class EnocodeAndDecodeStrings {
+class EncodeAndDecodeStrings {
     public String encode(List<String> strs) {
         StringBuilder encodedString = new StringBuilder();
         for (String str : strs) {
@@ -53,9 +53,11 @@ class EnocodeAndDecodeStrings {
             int j = i;
             while (str.charAt(j) != '#')
                 j++;
-            int length = Integer.parseInt(str.substring(i, j));
-            i = j + 1 + length;
-            list.add(str.substring(j + 1, i));
+            int poundIndex = j;
+            int wordLength = Integer.parseInt(str.substring(i, poundIndex));
+            int endIndex = poundIndex + wordLength;
+            list.add(str.substring(poundIndex + 1, endIndex + 1));
+            i = endIndex + 1;
         }
         return list;
     }

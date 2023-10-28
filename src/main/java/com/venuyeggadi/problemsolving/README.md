@@ -12,21 +12,21 @@
 * [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/1.TwoSum.java)
 * [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - [Solution](./leetcode/49.GroupAnagrams.java)
 * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/347.TopKFrequentElements.java)
-* [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - [Solution](./leetcode/ProductOfArrayExceptSelf.java)
-* [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) - [Solution](./leetcode/ValidSudoku.java)
-* [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) - [Solution](./leetcode/EnocodeAndDecodeStrings.java)
-* [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) - [Solution](./leetcode/LongestConsecutiveSequence.java)
+* [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - [Solution](./leetcode/238.ProductOfArrayExceptSelf.java)
+* [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) - [Solution](./leetcode/36.ValidSudoku.java)
+* [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) - [Solution](./leetcode/271.EnocodeAndDecodeStrings.java)
+* [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) - [Solution](./leetcode/128.LongestConsecutiveSequence.java)
 * Lean about Hashing if time permits.
 
 ## Two Pointers
-* [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) - [Solution](./leetcode/ValidPalindrome.java)
-* [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution](./leetcode/TwoSumII.java)
-* [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/ThreeSum.java)
-* [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/ContainerWithMostWater.java)
-* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/TrappingRainWater.java)
+* [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) - [Solution](./leetcode/125.ValidPalindrome.java)
+* [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution](./leetcode/167.TwoSumII.java)
+* [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/15.ThreeSum.java)
+* [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/11.ContainerWithMostWater.java)
+* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/42.TrappingRainWater.java)
 
 ## Sliding Window
-* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution]
+* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java)
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution]
 * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution]
 * [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution]
@@ -72,6 +72,7 @@
 ## Sorting
 * Learn all the sorting techniques.
 * [Leetcode Explore card - Sorting](https://leetcode.com/explore/learn/card/sorting/)
+* [Neetcode Basics](https://neetcode.io/practice)
 
 
 ## Recursion & Backtracking
