@@ -27,7 +27,7 @@
 
 ## Sliding Window
 * [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java)
-* [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution]
+* [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution](./leetcode/3.LongestSubstringWithoutRepeatingCharacters.java)
 * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution]
 * [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution]
 * [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - [Solution]
