@@ -20,6 +20,13 @@ package com.venuyeggadi.problemsolving.leetcode;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// Solution 0
+/*
+Use to two loops. For each element in the array, traverse the whole array to check if another exists.
+Time complexity: O(n^2) = n + (n-1) + ... + 1 = n * (n + 1) /2
+Space complexity: O(1)
+ */
+
 // Solution 1
 /*
 Sort the array. Traverse the array and if successive elements are equal return true.
