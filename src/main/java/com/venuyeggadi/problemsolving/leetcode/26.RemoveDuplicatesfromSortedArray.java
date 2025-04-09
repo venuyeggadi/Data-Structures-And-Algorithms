@@ -47,15 +47,15 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 //#1 Two Pointer
 //O(n), O(1)
-class RemoveDuplicatesfromSortedArraySolution1 {
+class RemoveDuplicatesFromSortedArraySolution1 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
         
         int uniqueIndex = 1;
-        for(int index = 1; index < nums.length; index++) {
-            if(nums[index] != nums[index-1]) {
-                nums[uniqueIndex++] = nums[index];
+        for(int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
+            if(nums[searchIndex] != nums[searchIndex-1]) {
+                nums[uniqueIndex++] = nums[searchIndex];
             }
         }
         
@@ -64,15 +64,15 @@ class RemoveDuplicatesfromSortedArraySolution1 {
 }
 //Same as above except comparison
 //O(n), O(1)
-class RemoveDuplicatesfromSortedArraySolution2 {
+class RemoveDuplicatesFromSortedArraySolution2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
        
         int uniqueIndex = 1;
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[uniqueIndex-1])
-                nums[uniqueIndex++] = nums[i];
+        for(int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
+            if(nums[searchIndex] != nums[uniqueIndex-1])
+                nums[uniqueIndex++] = nums[searchIndex];
         }
         
         return uniqueIndex;
@@ -80,7 +80,7 @@ class RemoveDuplicatesfromSortedArraySolution2 {
 }
 //Same as above except comparison
 //O(n), O(1)
-class RemoveDuplicatesfromSortedArraySolution3 {
+class RemoveDuplicatesFromSortedArraySolution3 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;

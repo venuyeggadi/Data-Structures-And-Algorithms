@@ -25,14 +25,15 @@ package com.venuyeggadi.problemsolving.leetcode;
 //O(n), O(n)
 class ShuffleTheArraySolution1 {
     public int[] shuffle(int[] nums, int n) {
-        int[] ans = new int[2*n];
-        
-        for(int i = 0, k = 0; i < n; i++, k+=2) {
-            ans[k] = nums[i];
-            ans[k+1] = nums[i+n];
-        }
-        
-        return ans;
+		int[] shuffledArray = new int[nums.length];
+
+		for (int i = 0; i < n; i++)
+		{
+			shuffledArray[2 * i] = nums[i];
+			shuffledArray[2 * i + 1] = nums[n + i];
+		}
+
+		return shuffledArray;
     }
 }
 
