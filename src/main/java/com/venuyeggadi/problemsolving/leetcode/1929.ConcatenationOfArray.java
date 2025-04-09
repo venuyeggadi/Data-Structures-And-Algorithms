@@ -30,12 +30,33 @@ package com.venuyeggadi.problemsolving.leetcode;
 //O(n), O(n)
 class ConcatenationOfArraySolution1 {
     public int[] getConcatenation(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[2*n];
-        
-        for(int i = 0; i < n; i++)
-            ans[i] = ans [n+i] = nums[i];
-        
-        return ans;
+        int[] concatenatedArray = new int[2 * nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            concatenatedArray[i] = nums[i];
+            concatenatedArray[nums.length + i] = nums[i];
+        }
+
+        return concatenatedArray;
+    }
+}
+
+//#2 Same as above but with built-in function
+//
+/**
+ System.arraycopy() is highly optimized for copying data, specifically for arrays.
+ The underlying native implementation is written in a low-level language (like C or C++),
+ which can directly manipulate memory,perform optimizations like using efficient memory copying algorithms, and reduce overhead.
+
+ It's a 'native' (also has native keyword) function and implemented in another language using JNI (Java Native Interface).
+ */
+//
+//O(n), O(n)
+class ConcatenationOfArraySolution2 {
+    public int[] getConcatenation(int[] nums) {
+        int[] concatenatedArray = new int[2 * nums.length];
+        System.arraycopy(nums, 0, concatenatedArray, 0, nums.length);
+        System.arraycopy(nums, 0, concatenatedArray, nums.length, nums.length);
+
+        return concatenatedArray;
     }
 }
