@@ -1,5 +1,7 @@
 package com.venuyeggadi.datastructures.stack;
 
+import com.venuyeggadi.datastructures.interfaces.Stack;
+
 class SinglyLinkedStack<E> implements Stack<E> {
 	private SinglyLinkedList<E> list = new SinglyLinkedList<>();
 

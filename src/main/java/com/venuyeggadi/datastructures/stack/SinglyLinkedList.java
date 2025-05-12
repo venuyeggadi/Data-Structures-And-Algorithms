@@ -1,5 +1,7 @@
 package com.venuyeggadi.datastructures.stack;
 
+import java.util.EmptyStackException;
+
 public class SinglyLinkedList<E> {
 
 	private static class Node<E> {
@@ -38,8 +40,8 @@ public class SinglyLinkedList<E> {
 	}
 
 	public E peekFirst() {
-		if(isEmpty()) //or size == 0
-			return null;
+		if(isEmpty())
+			throw new EmptyStackException();
 		return head.getElement();
 	}
 

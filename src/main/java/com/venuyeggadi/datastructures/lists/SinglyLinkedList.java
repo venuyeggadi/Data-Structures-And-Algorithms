@@ -1,12 +1,11 @@
 package com.venuyeggadi.datastructures.lists;
 
 public class SinglyLinkedList<E> {
-
 	private static class Node<E> {
 		private E element;
 		private Node<E> next;
 
-		public Node(E element, Node<E> next) {
+		Node(E element, Node<E> next) {
 			this.element = element;
 			this.next = next;
 		}
@@ -83,7 +82,7 @@ public class SinglyLinkedList<E> {
 		return element;
 	}
 	/**
-	 * We cann't efficiently acces an arbitrary node and
+	 * We can't efficiently access an arbitrary node and
 	   delete it as it takes linear time.
 	 * Observe that there is no removeLast() method.
 	 * because we don't know the node before tail.
@@ -127,31 +126,3 @@ public class SinglyLinkedList<E> {
 	}
 }
 
-class SinglyLinkedListTest {
-	public static void main(String[] args) {
-		SinglyLinkedList<Integer> sl = new SinglyLinkedList<Integer>();
-		sl.add(1);
-		sl.add(2);
-		System.out.println(sl);
-
-		sl.addFirst(0);
-		System.out.println(sl);
-		sl.addLast(3);
-		System.out.println(sl);
-		System.out.println(sl.removeFirst());
-		System.out.println(sl);
-		System.out.println(sl.removeLast());
-		System.out.println(sl);
-
-		System.out.println(sl.size());
-
-		System.out.println(sl.removeLast());
-		System.out.println(sl);
-		System.out.println(sl.removeLast());
-		System.out.println(sl);
-		System.out.println(sl.removeLast());
-		System.out.println(sl);
-		System.out.println(sl.removeLast());
-		System.out.println(sl);
-	}
-}

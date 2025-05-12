@@ -60,8 +60,8 @@ class SwapNodesInPairs1 {
 Time:
 Space:
  */
-class SwapNodesInPairs2 {
-    public ListNode swapPairs(ListNode head) {
-        
-    }
-}
+//class SwapNodesInPairs2 {
+//    public ListNode swapPairs(ListNode head) {
+//
+//    }
+//}

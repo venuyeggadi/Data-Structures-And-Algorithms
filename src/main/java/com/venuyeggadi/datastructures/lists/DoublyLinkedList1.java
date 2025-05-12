@@ -9,6 +9,7 @@ package com.venuyeggadi.datastructures.lists; /**
   */
 import java.lang.Iterable;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class DoublyLinkedList1<E> implements Iterable<E>{
 
@@ -17,7 +18,7 @@ public class DoublyLinkedList1<E> implements Iterable<E>{
         private Node<E> prev;
         private Node<E> next;
 
-        public Node(E element, Node<E> prev, Node<E> next) {
+        Node(E element, Node<E> prev, Node<E> next) {
             this.element = element;
             this.prev = prev;
             this.next = next;

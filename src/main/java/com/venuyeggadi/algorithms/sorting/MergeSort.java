@@ -1,84 +1,62 @@
 package com.venuyeggadi.algorithms.sorting;
 
-import java.util.Scanner;
-
 class MergeSort
 {
-    public static void main(String[] args)
-    {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int[] a = new int[n];
-        for(int i = 0; i < n; i++)
-            a[i] = in.nextInt();
+    public static void sort(int[] a) {
 
-        sort(a);
-
-        for(int el : a)
-            System.out.print(el+" ");
-        System.out.println();
+        mergeSort(a, 0, a.length - 1);
     }
 
-
-    static void sort(int[] a)
-    {
-        b = new int[a.length];
-        mergeSort(a, 0, a.length-1);
-    }
-
-    static int[] b;
-    static void mergeSort(int[] a, int start, int end)
-    {
-        if(end - start == 0)
+    private static void mergeSort(int[] a, int start, int end) {
+        if(end <= start)
             return;
 
-        int mid=(start+end)/2;
-        mergeSort(a,start,mid);
-        mergeSort(a,mid+1,end);
+        int mid = (start + end) / 2;
+        mergeSort(a, start, mid);
+        mergeSort(a,mid + 1, end);
 
-        int i=start,j=mid+1,k=start;
+        merge(a, start, mid, end);
+    }
+    
+    private static void merge(int arr[], int start, int mid, int end) {
+        int[] leftArray = new int[mid - start + 1];
+        int[] rightArray = new int[end - mid]; // end - (mid + 1) + 1
 
-        //Merge1
-        for (k = start; k <= end; k++)
+        for (int i = 0; i < leftArray.length; ++i)
+            leftArray[i] = arr[start + i];
+        for (int i = 0; i < rightArray.length; ++i)
+            rightArray[i] = arr[mid + 1 + i];
+ 
+        int leftArrayIndex = 0, rightArrayIndex = 0, resultArrayIndex = start;
+
+        // Merge: way 1
+        while (leftArrayIndex <  leftArray.length && rightArrayIndex < rightArray.length)
         {
-            if (i > mid)
-                b[k] = a[j++];
-            else if (j > end )
-                b[k] = a[i++];
-            else if (a[i] <= a[j])
-                b[k] = a[i++];
+            if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex])
+                arr[resultArrayIndex++] = leftArray[leftArrayIndex++];
             else
-                b[k] = a[j++];
+                arr[resultArrayIndex++] = rightArray[rightArrayIndex++];
         }
 
-        //Merge2
-        /*while(i<=mid&&j<=end)
-        {
-            if(a[i]<=a[j])
-            {
-                b[k]=a[i];
-                k++;i++;
-            }
-            else
-            {
-                b[k]=a[j];
-                j++;k++;
-            }
-        }
+        while (leftArrayIndex < leftArray.length)
+            arr[resultArrayIndex++] = leftArray[leftArrayIndex++];
 
-        while(i<=mid)
-        {
-            b[k]=a[i];
-            i++;k++;
-        }
+        while (rightArrayIndex < rightArray.length)
+            arr[resultArrayIndex++] = rightArray[rightArrayIndex++];
 
-        while(j<=end)
-        {
-            b[k]=a[j];
-            k++;j++;
-        }*/
-
-        for(i=start;i<=end;i++)
-            a[i]=b[i];
+        // Merge: way 2
+//        while (resultArrayIndex <= end)
+//        {
+//            if (leftArrayIndex == leftArray.length)
+//                arr[resultArrayIndex] = rightArray[rightArrayIndex++];
+//            else if (rightArrayIndex == rightArray.length)
+//                arr[resultArrayIndex] = leftArray[leftArrayIndex++];
+//            else if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex])
+//                arr[resultArrayIndex] = leftArray[leftArrayIndex++];
+//            else
+//                arr[resultArrayIndex] = rightArray[rightArrayIndex++];
+//
+//            resultArrayIndex++;
+//        }
     }
 }

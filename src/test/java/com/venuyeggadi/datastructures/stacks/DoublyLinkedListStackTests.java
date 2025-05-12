@@ -5,6 +5,9 @@ import com.venuyeggadi.datastructures.stack.DoublyLinkedListStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Deque;
 import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +20,8 @@ class DoublyLinkedListStackTests {
     @BeforeEach
     void setUp() {
         stack = new DoublyLinkedListStack<>(); // Replace with your concrete implementation
+        Deque<String> deque = new ArrayDeque<>();
+        deque.toArray(new String[0]);
     }
 
     @Test

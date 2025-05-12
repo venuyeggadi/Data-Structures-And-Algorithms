@@ -36,7 +36,8 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 
 //Just like counting sort
-// O(n), O(1)
+// Time: 2n => O(n),
+// Space: O(1)
 class SortColorsSolution1 {
     public void sortColors(int[] nums) {
         int num0 = 0, num1 = 0, num2 = 0;
@@ -59,8 +60,10 @@ class SortColorsSolution1 {
     }
 }
 
-//Dutch national flag algorithm
-// O(n), O(1)
+// Dutch national flag algorithm (1 pass)
+// push 0 to the start and 2 to the end, 1 will stay in middle
+// Time: O(n),
+// Space: O(1)
 class SortColorsSolution2 {
     public void sortColors(int[] nums) {
         int low = 0, i = 0, hi = nums.length - 1;

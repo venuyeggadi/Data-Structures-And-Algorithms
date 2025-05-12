@@ -7,7 +7,7 @@ class CircularlyLinkedList<E> {
 		private E element = null;
 		private Node<E> next = null;
 
-		public Node(E element, Node<E> next) {
+		Node(E element, Node<E> next) {
 			this.element = element;
 			this.next = next;
 		}

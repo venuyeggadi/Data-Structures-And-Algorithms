@@ -14,7 +14,7 @@ public class DoublyLinkedList2<E> {
 		private Node<E> prev;
 		private Node<E> next;
 
-		public Node(E element, Node<E> prev, Node<E> next) {
+		Node(E element, Node<E> prev, Node<E> next) {
 			this.element = element;
 			this.prev = prev;
 			this.next = next;
@@ -31,8 +31,8 @@ public class DoublyLinkedList2<E> {
 	 */
 
 	private int size = 0;
-	private Node<E> header; //header sentinal
-	private Node<E> trailer;   //trailer sentinal
+	private Node<E> header; //header sentinel
+	private Node<E> trailer;   //trailer sentinel
 
 	public DoublyLinkedList2() {
 		header = new Node<>(null, null, null);
