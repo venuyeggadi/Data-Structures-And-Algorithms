@@ -17,9 +17,11 @@ import java.util.List;
 /**
  * Time: O(n)
  * Space: O(h) where h is the height of the tree
+ *      O(n) for unbalanced tree
+ *      O(log n) for balanced tree
  */
 
-class BinaryTreeInorderTraversal_Solution {
+class BinaryTreeInorderTraversal_Solution1 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         traverse(list, root);
