@@ -1,6 +1,8 @@
 package com.venuyeggadi.problemsolving.leetcode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -10,7 +12,6 @@ import java.util.List;
  *      O(n) for unbalanced tree
  *      O(log n) for balanced tree
  */
-
 class BinaryTreePreorderTraversal_Solution1 {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
@@ -28,6 +29,7 @@ class BinaryTreePreorderTraversal_Solution1 {
     }
 }
 
+
 /**
  * Iterative DFS
  * Time: O(n)
@@ -35,20 +37,23 @@ class BinaryTreePreorderTraversal_Solution1 {
  *      O(n) for unbalanced tree
  *      O(log n) for balanced tree
  */
-
 class BinaryTreePreorderTraversal_Solution2 {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        traverse(list, root);
+        Deque<TreeNode> stack = new ArrayDeque<TreeNode>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            if (curr != null) {
+                list.add(curr.val);
+                if (curr.right != null)  // cannot push null element to ArrayDeque
+                    stack.push(curr.right);
+                curr = curr.left;
+            } else {
+                curr = stack.pop();
+            }
+        }
+
         return list;
-    }
-
-    private void traverse(List<Integer> list, TreeNode root) {
-        if (root == null)
-            return;
-
-        list.add(root.val);
-        traverse(list, root.left);
-        traverse(list, root.right);
     }
 }

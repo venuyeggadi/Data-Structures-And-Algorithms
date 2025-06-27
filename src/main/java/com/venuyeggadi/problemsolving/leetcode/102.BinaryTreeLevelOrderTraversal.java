@@ -22,7 +22,12 @@ import java.util.Queue;
  * }
  */
 
-class BinaryTreeLevelOrderTraversal_Solution {
+/**
+ * BFS
+ * Time: O(n)
+ * Space: O(n/2) => O(n) for the queue
+ */
+class BinaryTreeLevelOrderTraversal_Solution1 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
 
@@ -45,5 +50,33 @@ class BinaryTreeLevelOrderTraversal_Solution {
         }
 
         return list;
+    }
+}
+
+/**
+ * Time: O(n) for vising n nodes
+ * Space: O(h), h => height of the tree
+ *      O(n) for unbalanced
+ *      O(log n) for balanced
+ */
+class BinaryTreeLevelOrderTraversal_Solution2 {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
+        dfs(root, 0, list);
+
+        return list;
+    }
+
+    private void dfs(TreeNode node, int depth, List<List<Integer>> list) {
+        if (node == null)
+            return;
+
+        if (depth == list.size()) {
+            list.add(new ArrayList<Integer>());
+        }
+
+        list.get(depth).add(node.val);
+        dfs(node.left, depth + 1, list);
+        dfs(node.right, depth + 1, list);
     }
 }

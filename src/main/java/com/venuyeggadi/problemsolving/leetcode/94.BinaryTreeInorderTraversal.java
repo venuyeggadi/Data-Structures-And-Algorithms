@@ -1,6 +1,8 @@
 package com.venuyeggadi.problemsolving.leetcode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -20,7 +22,6 @@ import java.util.List;
  *      O(n) for unbalanced tree
  *      O(log n) for balanced tree
  */
-
 class BinaryTreeInorderTraversal_Solution1 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
@@ -35,5 +36,32 @@ class BinaryTreeInorderTraversal_Solution1 {
         traverse(list, root.left);
         list.add(root.val);
         traverse(list, root.right);
+    }
+}
+
+/**
+ * Iterative DFS
+ * Time: O(n)
+ * Space: O(h) for stack where h is the height of the tree
+ *      O(n) for unbalanced tree
+ *      O(log n) for balanced tree
+ */
+class BinaryTreeInorderTraversal_Solution2 {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            list.add(curr.val);
+            curr = curr.right;
+        }
+
+        return list;
     }
 }

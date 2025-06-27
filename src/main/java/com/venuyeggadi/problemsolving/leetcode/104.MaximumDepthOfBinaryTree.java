@@ -2,18 +2,43 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 
 /**
+ * DFS (Recursion - bottom-up)
  * Time: O(n) where n -> number of nodes in tree
  * Space: O(k) where k => maximum depth of the tree
  *      Best Case (balanced tree): O(log n)
  *      Worst Case (degenerate tree): O(n)
  */
-class MaximumDepthOfBinaryTree_Solution {
+class MaximumDepthOfBinaryTree_Solution1 {
     public int maxDepth(TreeNode root) {
         if (root == null)
             return 0;
 
-        int leftDepth = 1 + maxDepth(root.left);
-        int rightDepth = 1 + maxDepth(root.right);
+        int leftDepth = maxDepth(root.left);
+        int rightDepth = maxDepth(root.right);
+
+        return 1 + Math.max(leftDepth, rightDepth);
+    }
+}
+
+/**
+ * DFS (Recursion - top-down)
+ * Time: O(n) where n -> number of nodes in tree
+ * Space: O(k) where k => maximum depth of the tree
+ *      Best Case (balanced tree): O(log n)
+ *      Worst Case (degenerate tree): O(n)
+ */
+class MaximumDepthOfBinaryTree_Solution2 {
+    public int maxDepth(TreeNode root) {
+        return maxDepthRec(root, 0);
+    }
+
+    private int maxDepthRec(TreeNode root, int parentDepth) {
+        if (root == null)
+            return parentDepth;
+
+        int depth = parentDepth + 1;
+        int leftDepth = maxDepthRec(root.left, depth);
+        int rightDepth = maxDepthRec(root.right, depth);
 
         return Math.max(leftDepth, rightDepth);
     }

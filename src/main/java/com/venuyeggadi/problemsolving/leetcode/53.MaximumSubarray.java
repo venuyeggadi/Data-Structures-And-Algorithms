@@ -26,9 +26,36 @@ package com.venuyeggadi.problemsolving.leetcode;
 */
 
 
-//#1 (Time Limit Exceeded)
-//O(n^2), O(1)
-class MaximumSubarraySolution1 {
+/**
+ * (Time Limit Exceeded)
+ * O(n^3), O(1)
+ */
+class MaximumSubarray_Solution0 {
+    public int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                max = Math.max(max, sum(i, j, nums));
+            }
+        }
+
+        return max;
+    }
+
+    private int sum(int start, int end, int[] arr) {
+        int sum = 0;
+        for (int i = start; i <= end; i++)
+            sum += arr[i];
+
+        return sum;
+    }
+}
+
+/**
+ * (Time Limit Exceeded)
+ * O(n^2), O(1)
+ */
+class MaximumSubarray_Solution1Way1 {
     public int maxSubArray(int[] nums) {
         int max = nums[0];
         for(int i = 0; i < nums.length; i++) {
@@ -43,30 +70,86 @@ class MaximumSubarraySolution1 {
     }
 }
 
-//#2
-//O(n), O(1)
-class MaximumSubarraySolution2 {
+/**
+ * (Time Limit Exceeded)
+ * Prefix sum
+ * O(n^2), O(1)
+ */
+class MaximumSubarray_Solution1Way2 {
+    public int maxSubArray(int[] nums) {
+        for (int i = 1; i < nums.length; i++)
+            nums[i] = nums[i] + nums[i - 1];
+
+        int max = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                max = Math.max(max, sum(i, j, nums));
+            }
+        }
+
+        return max;
+    }
+
+    private int sum(int start, int end, int[] arr) {
+        if (start == 0)
+            return arr[end];
+
+        return arr[end] - arr[start - 1];
+    }
+}
+
+/**
+ * Kadane's
+ * (n), O(1)
+ */
+class MaximumSubarray_Solution2Way1 {
     public int maxSubArray(int[] nums) {
         int sum = 0, max = nums[0];
         for(int num : nums) {
             sum += num;
             max = Math.max(sum, max);
-            if(sum < 0)
+            if(sum < 0) // Resetting sum. Because negative sum doesn't contribute for a max sum. And max sum till that point is already captured.
                 sum = 0;
         }
         
         return max;
     }
 }
-//same solution
-class MaximumSubarraySolution3 {
+
+// Same solution
+class MaximumSubarray_Solution2Way2 {
     public int maxSubArray(int[] nums) {
         int sum = 0, max = nums[0];
         for(int num : nums) {
-            sum = Math.max(sum+num, num);
+            sum = Math.max(sum+num, num); // Sets sum to num if sum < 0. Same as re-setting sum to 0 if it's < 0.
             max = Math.max(max, sum);
         }
         
+        return max;
+    }
+}
+
+// If we want the indices
+class MaximumSubarray_Solution2Indices {
+    public int maxSubArray(int[] nums) {
+        int max = nums[0], maxL = 0, maxR = 0;
+        int currSum = 0, l = 0, r = 0;
+
+        for (r = 0; r < nums.length; r++) {
+            if (currSum < 0) {
+                currSum = 0;
+                l = r;
+            }
+            currSum += nums[r];
+            if (currSum > max) {
+                max = currSum;
+                maxL = l;
+                maxR = r;
+            }
+        }
+
+        System.out.println(maxL +", "+ maxR);
+
         return max;
     }
 }
