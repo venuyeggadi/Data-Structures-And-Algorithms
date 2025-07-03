@@ -35,7 +35,6 @@ Time complexity: O(k.n^2)
 Space complexity: O(n)
     for the boolean array.
 
-
 Note: we are not considering the space used by result list.
  */
 class GroupAnagramsSolution1 {
@@ -45,18 +44,18 @@ class GroupAnagramsSolution1 {
         boolean[] grouped = new boolean[length];
 
         for (int outerIndex = 0; outerIndex < length; outerIndex++) {
-            if (!grouped[outerIndex]) {
-                ArrayList<String> innerList = new ArrayList<>();
-                innerList.add(strs[outerIndex]);
-                grouped[outerIndex] = true;
-                for (int innerIndex = outerIndex+1; innerIndex < length; innerIndex++) {
-                    if (!grouped[innerIndex] && areAnagrams(strs[outerIndex], strs[innerIndex])) {
-                        innerList.add(strs[innerIndex]);
-                        grouped[innerIndex] = true;
-                    }
+            if (grouped[outerIndex])
+                continue;
+            ArrayList<String> innerList = new ArrayList<>();
+            innerList.add(strs[outerIndex]);
+            grouped[outerIndex] = true;
+            for (int innerIndex = outerIndex+1; innerIndex < length; innerIndex++) {
+                if (!grouped[innerIndex] && areAnagrams(strs[outerIndex], strs[innerIndex])) {
+                    innerList.add(strs[innerIndex]);
+                    grouped[innerIndex] = true;
                 }
-                resultList.add(innerList);
             }
+            resultList.add(innerList);
         }
 
         return resultList;
