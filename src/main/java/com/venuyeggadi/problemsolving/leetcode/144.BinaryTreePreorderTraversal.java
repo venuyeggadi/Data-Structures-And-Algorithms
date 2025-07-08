@@ -57,3 +57,26 @@ class BinaryTreePreorderTraversal_Solution2 {
         return list;
     }
 }
+
+class BinaryTreePreorderTraversal_Solution2_Way2 {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
+
+        TreeNode current = root;
+
+        while (current != null || !stack.isEmpty()) {
+            if (current != null) {
+                list.add(current.val);
+                if (current.right != null)
+                    stack.push(current.right);
+                current = current.left;
+            } else {
+                TreeNode node = stack.pop();
+                current = node;
+            }
+        }
+
+        return list;
+    }
+}

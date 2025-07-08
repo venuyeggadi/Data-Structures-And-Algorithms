@@ -65,3 +65,25 @@ class BinaryTreeInorderTraversal_Solution2 {
         return list;
     }
 }
+
+class BinaryTreeInorderTraversal_Solution2Way2 {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
+
+        TreeNode current = root;
+
+        while (current != null || !stack.isEmpty()) {
+            if (current != null) {
+                stack.push(current);
+                current = current.left;
+            } else {
+                TreeNode node = stack.pop();
+                list.add(node.val);
+                current = node.right;
+            }
+        }
+
+        return list;
+    }
+}
