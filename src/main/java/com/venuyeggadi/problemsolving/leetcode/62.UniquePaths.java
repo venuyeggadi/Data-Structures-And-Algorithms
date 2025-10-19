@@ -1,4 +1,6 @@
-package com.venuyeggadi.problemsolving.leetcode;/* A robot is located at the top-left corner of a m x n grid
+package com.venuyeggadi.problemsolving.leetcode;
+
+/* A robot is located at the top-left corner of a m x n grid
    (marked 'Start' in the diagram below).
    The robot can only move either down or right at any point in time.
    The robot is trying to reach the bottom-right corner of the grid
@@ -35,15 +37,79 @@ package com.venuyeggadi.problemsolving.leetcode;/* A robot is located at the top
 */
 
 
-//#1
-//O(m*n), O(m*n)
-/*
-Algorithm :
-   * Traverse thought every cell and store the number of ways you can reach to
-     that cell.
-   * At the end target cell(bottom-right) contains the answer.
-*/
-class UniquePathsSolution1 {
+import java.util.Arrays;
+
+/**
+ * Recursion / DFS  (Top-down approaches)
+ * Time: O(2 ^ (m + n))
+ * Space: O(m + n)
+ *
+ * Both these solutions are top-down
+ */
+// Way1 - How many paths lead to this point.
+class UniquePathsSolution1Way1 {
+    public int uniquePaths(int m, int n) {
+        if(m == 1 || n == 1)
+            return 1;
+        return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+    }
+}
+
+// Way2 - How many paths emerge from this point
+class UniquePathsSolution1Way2 {
+    public int uniquePaths(int m, int n) {
+        return dfs(0, 0, m, n);
+    }
+
+    private int dfs(int i, int j, int m, int n) {
+        if (i == m || j == n)
+            return 0;
+        if (i == m - 1 && j == n - 1)
+            return 1;
+
+        return dfs(i, j + 1, m, n) + dfs(i + 1, j, m, n);
+    }
+}
+
+
+
+/**
+ * Recursion + Memoization - (Dynamic Programming - Top-down)
+ * Time: O(m * n)
+ * Space: O(m * n)
+ */
+class UniquePathsSolution2  {
+    public int uniquePaths(int m, int n) {
+        int[][] memo = new int[m][n];
+
+        return dfs(0, 0, m, n, memo);
+    }
+
+    private int dfs(int i, int j, int m, int n, int[][] memo) {
+        if (i == m || j == n)
+            return 0;
+        if (i == m - 1 && j == n - 1)
+            return 1;
+
+        if (memo[i][j] != 0)
+            return memo[i][j];
+
+        memo[i][j]= dfs(i, j + 1, m, n, memo) + dfs(i + 1, j, m, n, memo);
+        return memo[i][j];
+    }
+}
+
+
+/**
+ * Dynamic programming (bottom-up)
+ *  Algorithm :
+ *     * Traverse thought every cell and store the number of ways you can reach to
+ *       that cell.
+ *     * At the end target cell(bottom-right) contains the answer.
+ * Time: O(m*n)
+ * Space: O(m*n)
+ */
+class UniquePathsSolution3 {
     public int uniquePaths(int m, int n) {
         int[][] paths = new int[m][n];
         for(int i = 0; i < m; i++) {
@@ -56,6 +122,64 @@ class UniquePathsSolution1 {
         }
         
         return paths[m - 1][n - 1];
+    }
+}
+
+class UniquePathsSolution3Way2 {
+    public int uniquePaths(int m, int n) {
+        int[][] paths = new int[m + 1][n + 1];
+        paths[1][1] = 1;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 && j == 1)
+                    continue;
+                paths[i][j] = paths[i - 1][j] + paths[i][j - 1];
+            }
+        }
+
+        return paths[m][n];
+    }
+}
+
+class UniquePathsSolution3Way3 {
+    public int uniquePaths(int m, int n) {
+        int[][] paths = new int[m + 1][n + 1];
+        paths[1][1] = 1;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                paths[i][j] += paths[i - 1][j] + paths[i][j - 1];
+            }
+        }
+
+        return paths[m][n];
+    }
+}
+
+/**
+ * Dynamic programming (bottom-up)
+ * Same as above using only one array of size n.
+ * Time: O(m*n)
+ * Space: O(n) - Assuming that the locally initialized row array gets garbage collected for each iteration.
+ */
+class UniquePathsSolution4 {
+    public int uniquePaths(int m, int n) {
+        int[] row = new int[n];
+        Arrays.fill(row, 1);
+
+        for (int i = 0; i < m - 1; i++) {
+            int[] newRow = new int[n];
+            newRow[0] = 1;
+
+            for (int j = 1; j < n; j++) {
+                newRow[j] = row[j] + newRow[j - 1];
+            }
+
+            row = newRow;
+        }
+
+        return row[n - 1];
     }
 }
 
@@ -72,9 +196,9 @@ Intuition : Observe the below pattern.
    1. Right -> Down -> Down
    2. Down -> Down -> Right
    3. Down -> Right -> Down
-   So here must take 2 (3-1 = 2) down steps and 1 (2-1 = 1) right steps.
+   So here, it must take 2 (3-1 = 2) down steps and 1 (2-1 = 1) right steps.
    i.e., m-1 down steps and n-1 right steps in general.
-   In total we take m-1 + n-1 = m+n-2 steps.
+   In total, we take m-1 + n-1 = m+n-2 steps.
    So from m+n-2 total steps we choose to take m-1 down steps so that remaining
    will be right steps. we can do this in (m+n-2)C(m-1) steps.
    (or)
@@ -87,7 +211,7 @@ Intuition : Observe the below pattern.
    nCr = n*(n-1)*...(n-(r-1))  /  r*(r-1)*(r-2)*....*2*1
        = n*(n-1)*...(n-r+1)  /  1*2*....*(r-2)*(r-1)*r
 */
-class UniquePathsSolution2 {
+class UniquePathsSolution5 {
     public int uniquePaths(int m, int n) {
         int N = m+n-2;
         int r = m-1; //or n-1
@@ -113,13 +237,3 @@ class UniquePathsSolution2 {
 }
 //Dividing by gcd on every step to avoid overflow problem in most of the time.
 //It doesn't alter the result as however divide them at the end.
-
-
-//#3 Recursion (TLE)
-class UniquePathsSolution3 {
-    public int uniquePaths(int m, int n) {
-        if(m == 1 || n == 1)
-            return 1;
-        return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
-    }
-}

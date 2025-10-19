@@ -27,15 +27,14 @@ package com.venuyeggadi.problemsolving.leetcode;
 import java.util.*;
 
 // Solution 1
-/*
-Bruteforce
-Time complexity: O(k.n^2)
-    where n = |strs| and k = ∣strs[i]∣ = average length of a string
-    and in the best case O(k.n) when every anagram belongs to same group.
-Space complexity: O(n)
-    for the boolean array.
-
-Note: we are not considering the space used by result list.
+/**
+ * Bruteforce
+ * Time complexity: O(n *n *k) => (n^2 * k) worst case when no strings are anagrams of each other.
+ *      where n = |strs| and k = ∣strs[i]∣ = average length of a string
+ *      and in the best case O(k.n) when every anagram belongs to same group.
+ * Space complexity: O(n) for the boolean array.
+ *
+ * Note: we are not considering the space used by result list.
  */
 class GroupAnagramsSolution1 {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -49,7 +48,7 @@ class GroupAnagramsSolution1 {
             ArrayList<String> innerList = new ArrayList<>();
             innerList.add(strs[outerIndex]);
             grouped[outerIndex] = true;
-            for (int innerIndex = outerIndex+1; innerIndex < length; innerIndex++) {
+            for (int innerIndex = outerIndex + 1; innerIndex < length; innerIndex++) {
                 if (!grouped[innerIndex] && areAnagrams(strs[outerIndex], strs[innerIndex])) {
                     innerList.add(strs[innerIndex]);
                     grouped[innerIndex] = true;
@@ -81,12 +80,13 @@ class GroupAnagramsSolution1 {
 
 
 // Solution 2
-/*
-Using HashMap
-Time complexity: O(n.k.log(k))
-    where n = |strs| and k = ∣strs[i]∣ = average length of a string
-Space complexity: O(n.k)
-    for the charArray created at each iteration.
+/**
+ * Using HashMap
+ * Having the pattern as the key. Here the pattern is sorted string.
+ * Time complexity: O(n.k.log(k))
+ *      where n = |strs| and k = ∣strs[i]∣ = average length of a string
+ * Space complexity: O(n.k)
+ *      for the charArray created at each iteration.
  */
 class GroupAnagramsSolution2 {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -106,14 +106,14 @@ class GroupAnagramsSolution2 {
 
 
 // Solution 3
-/*
-Using HashMap
-Time complexity: O(n.k)
-    where n = |strs| and k = ∣strs[i]∣ = average length of a string
-Space complexity: O(n.26) = O(n)
-
-* Here we are using string as a key because arrays in java can't be keys of a map.
-  Because they do not override the hashCode() method. They use hashCode() method of Object class.
+/**
+ * Using HashMap
+ * Having the pattern as the key. Here the pattern is frequency array
+ * Time complexity: O(n.k)
+ *      where n = |strs| and k = ∣strs[i]∣ = average length of a string
+ * Space complexity: O(n.26) = O(n)
+ * Here we are using string as a key because arrays in java can't be keys of a map.
+ * Because they do not override the hashCode() method. They use hashCode() method of Object class.
  */
 class GroupAnagramsSolution3 {
     public List<List<String>> groupAnagrams(String[] strs) {

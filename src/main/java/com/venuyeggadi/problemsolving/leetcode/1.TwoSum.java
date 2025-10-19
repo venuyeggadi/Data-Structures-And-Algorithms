@@ -34,7 +34,7 @@ import java.util.Map;
 
 // Solution 1
 // Bruteforce Time : O(n^2) , Space : O(1)
-class TwoSumSolution1 {
+class TwoSum_Solution1 {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
         int i, j = 0;
@@ -53,7 +53,7 @@ class TwoSumSolution1 {
 }
 
 //Same Bruteforce with optimised return statement
-class TwoSumSolution1WithBetterReturnStatement {
+class TwoSum_Solution1WithBetterReturnStatement {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
         for (int i = 0; i < nums.length - 1; i++) {
@@ -67,17 +67,43 @@ class TwoSumSolution1WithBetterReturnStatement {
     }
 }
 
+/**
+ * Using HashMap(Dictionary) - Two Pass
+ * We can reduce the time complexity to 'n' by making lookup table for the elements instead of linearly searching for the
+ * compliment element that is needed.
+ * Pre-compute a hash map of number and their indices. Scan the array checking for compliment in the hashmap.
+ *
+ * Time : O(n), Space : O(n)
+ */
+class TwoSum_Solution2 {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> indices = new HashMap<>();  // val -> index
 
-// solution 2
-//Using HashMap(Dictionary) Time : O(n), Space : O(n)
+        for (int i = 0; i < nums.length; i++) {
+            indices.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int diff = target - nums[i];
+            if (indices.containsKey(diff) && indices.get(diff) != i) {
+                return new int[]{i, indices.get(diff)};
+            }
+        }
+
+        return new int[0];
+    }
+}
 
 /**
- * Time complexity : O(n). We traverse the list containing n elements only once.
- * Each look up in the Hash table costs only O(1) time.
- * Space complexity : O(n). The extra space required depends on the number of
- * items stored in the hash table, which stores at most n elements.
+ * Using HashMap(Dictionary) - One pass
+ * Building lookup table on the fly. Scan each element in the array by checking for complement in previously added elements to the hashmap.
+ *
+ * Time complexity : O(n).
+ *      We traverse the list containing n elements only once. Each look up in the Hash table costs only O(1) time.
+ * Space complexity : O(n).
+ *      The extra space required depends on the number of items stored in the hash table, which stores at most n elements.
  */
-class TwoSumSolution2 {
+class TwoSum_Solution3 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         int complement;

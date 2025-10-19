@@ -97,7 +97,7 @@ class SingleNumberSolution3 {
         
         for(int i : nums) {
             if(uniqueList.contains(i))
-                uniqueList.remove(new Integer(i));
+                uniqueList.remove(Integer.valueOf(i));
             else
                 uniqueList.add(i);
         }

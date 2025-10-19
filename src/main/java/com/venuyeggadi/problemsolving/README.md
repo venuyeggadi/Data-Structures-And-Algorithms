@@ -123,12 +123,12 @@
 
 ## Graphs
 * [William Fiset Graphs Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
-* [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution]
+* [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution](./leetcode/200.NumberOfIslands.java)
+* [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) - [Solution](./leetcode/695.MaxAreaOfIsland.java)
 * [Clone Graph](https://leetcode.com/problems/clone-graph/) - [Solution]
-* [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) - [Solution]
 * [Pacific Atlantic Waterflow](https://leetcode.com/problems/pacific-atlantic-water-flow/) - [Solution]
 * [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) - [Solution]
-* [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - [Solution]
+* [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - [Solution](./leetcode/994.RottingOranges.java)
 * [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) - [Solution]
 * [Course Schedule](https://leetcode.com/problems/course-schedule/) - [Solution]
 * [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - [Solution]

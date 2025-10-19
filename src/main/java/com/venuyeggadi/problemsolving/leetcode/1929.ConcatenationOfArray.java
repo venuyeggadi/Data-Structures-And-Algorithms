@@ -40,16 +40,25 @@ class ConcatenationOfArraySolution1 {
     }
 }
 
+class ConcatenationOfArray_Solution1Way2 {
+    public int[] getConcatenation(int[] nums) {
+        int[] result = new int[2 * nums.length];
+
+        for (int i = 0; i < result.length; i++)
+            result[i] = nums[i % nums.length];
+
+        return result;
+    }
+}
+
 //#2 Same as above but with built-in function
-//
 /**
  System.arraycopy() is highly optimized for copying data, specifically for arrays.
  The underlying native implementation is written in a low-level language (like C or C++),
- which can directly manipulate memory,perform optimizations like using efficient memory copying algorithms, and reduce overhead.
+ which can directly manipulate memory, perform optimizations like using efficient memory copying algorithms, and reduce overhead.
 
  It's a 'native' (also has native keyword) function and implemented in another language using JNI (Java Native Interface).
  */
-//
 //O(n), O(n)
 class ConcatenationOfArraySolution2 {
     public int[] getConcatenation(int[] nums) {

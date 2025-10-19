@@ -125,3 +125,31 @@ class ContainsDuplicateSolution3Better {
         return false;
     }
 }
+
+
+/**
+ * For each element, put it before all the elements bigger than it. It might end up just side the same element.
+ * Return true if it does so. The array will be sorted each time we do the iteration.
+ * So in the worst case (when array is in decreasing order), it would take,
+ * Time: O(n^2)
+ */
+class ContainsDuplicateSolution4 {
+    public boolean containsDuplicate(int[] nums) {
+        for(int i = 1; i < nums.length; i++){
+            int key = nums[i];
+            int j = i - 1;
+
+            while(j >= 0 && nums[j] > key){
+                nums[j + 1] = nums[j];
+                j--;
+            }
+
+            if(j >= 0 && nums[j] == key)
+                return true;
+
+            nums[j + 1] = key;
+        }
+
+        return false;
+    }
+}
