@@ -1,14 +1,14 @@
-package com.venuyeggadi.algorithms.graphs;
+package com.venuyeggadi.datastructures;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class UnionFind {
+public class UnionFind_WithMap {
 
     private Map<Integer, Integer> parentMap = new HashMap<>();
     private Map<Integer, Integer> rank = new HashMap<>();
 
-    public UnionFind(int n) {
+    public UnionFind_WithMap(int n) {
         for (int i = 1; i <= n; i++) {
             parentMap.put(i, i);
             rank.put(i, 0);
@@ -17,7 +17,7 @@ public class UnionFind {
 
     /**
      * find : Recursive version (for interviews)
-     * Paths compression in this case sets the parents of all the node in the path to the top most most parent.
+     * Paths compression in this case sets the parents of all the node in the path to the top most top parent.
      * i.e., it flattens the tree.
      * | Measure                                        | Explanation                                                                        |
      * | ---------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -27,13 +27,32 @@ public class UnionFind {
      * |--------------------------------------------------------------------------------------------------------------------------------------
      * α(n) -> inverse Ackermann function — grows slower than log⁎(n), practically ≤ 4 for any real input size
      */
-    public int findRec(int x) {
-        if (parentMap.get(x) != x)
-            parentMap.put(x, findRec(parentMap.get(x)));
-        return parentMap.get(x);
+    public int findV1_Recursive(int v) {
+        if (parentMap.get(v) != v)
+            parentMap.put(v, findV1_Recursive(parentMap.get(v)));
+        return parentMap.get(v);
+    }
+
+    public int findV1_Iterative(int v) {
+        // find the root node
+        int root = v;
+        while (root != parentMap.get(root)) {
+            root = parentMap.get(root);
+        }
+
+        // set every node's parent along the path to root node
+        while (parentMap.get(v) != root) {
+            int parent = parentMap.get(v);
+            parentMap.put(v, root);
+            v = parent;
+        }
+
+        return root;
     }
 
     /**
+     * Path compression by path halving - widely used in real life to avoid risky recursive solutions
+     * Path compression in this case reduces the length of that particular path each time by half.
      *
      * | Measure                      | Explanation                                   |
      * | ---------------------------- | --------------------------------------------- |
@@ -71,3 +90,9 @@ public class UnionFind {
         return true;
     }
 }
+
+
+
+
+
+

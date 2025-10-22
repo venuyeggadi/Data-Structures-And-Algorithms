@@ -4,6 +4,7 @@ public class DecimalToBinaryConversion {
     public static void main(String[] args) {
         int num = 127;
         System.out.println(toBinary(num));
+        System.out.println(Integer.toBinaryString(num));
     }
 
     private static String toBinary(int num) {
