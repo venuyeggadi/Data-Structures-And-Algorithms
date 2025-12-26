@@ -16,6 +16,14 @@ public class DFS_AdjacencyMatrix {
         System.out.println();
     }
 
+    /**
+     * Time: O(v^2)
+     *      As we visit the entire matrix
+     *      v -> for visited array
+     *
+     * where
+     *      v -> number of vertices
+     */
     public static void dfs(int[][] adjacencyMatrix) {
         int[] visitedVertices = new int[adjacencyMatrix.length];
         dfs(adjacencyMatrix, 1, visitedVertices); // start vertex can be anything, it will explore all vertices.

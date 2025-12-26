@@ -17,6 +17,17 @@ public class DFS_AdjacencyList {
         dfs(adjacencyList);
     }
 
+    /**
+     * Time: O(v + e) or (n + e)
+     *      As we visit each vertex and then visit (iterate) all of its neighbors.
+     * Space: O(v)
+     *      v -> for recursion stack at any point
+     *      v -> for visited array
+     *
+     * where
+     *      v or n -> number of vertices
+     *      e -> number of edges
+     */
     public static void dfs(List<List<Integer>> adjacencyList) {
         int[] visitedVertices = new int[adjacencyList.size()];
         dfs(adjacencyList, 1, visitedVertices);

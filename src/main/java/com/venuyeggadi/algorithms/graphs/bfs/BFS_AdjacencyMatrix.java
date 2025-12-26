@@ -24,13 +24,13 @@ public class BFS_AdjacencyMatrix {
         System.out.println();
     }
 
-
     /**
-     * We should mark the vertex as visited immediately after visiting it, not after adding it to queue and the accessing it.
+     * Time: O(v^2)
+     *      As we visit the entire matrix
+     *      v -> for visited array
      *
-     * Time: O(n ^ 2)
-     * Space: O(n)
-     * where n -> number of vertices
+     * where
+     *      v -> number of vertices
      */
     public static void bfs(int[][] adjMatrix, int startingVertex) {
         Queue<Integer> queue = new ArrayDeque<>();
@@ -41,7 +41,7 @@ public class BFS_AdjacencyMatrix {
 
         while (!queue.isEmpty()) {
             int vertex = queue.poll();
-            System.out.print(vertex + " "); /** or add it after adding the node to queue and marking as visited **/
+            System.out.print(vertex + " "); /** or process it after adding the node to queue and marking as visited **/
             for (int col = 1; col < adjMatrix[0].length; col++) {
                 if (adjMatrix[vertex][col] == 1 && visitedVertices[col] == 0) {
                     queue.offer(col);

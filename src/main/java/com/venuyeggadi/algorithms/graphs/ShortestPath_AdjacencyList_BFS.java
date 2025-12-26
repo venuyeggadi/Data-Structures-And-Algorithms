@@ -4,8 +4,14 @@ import java.util.*;
 
 public class ShortestPath_AdjacencyList_BFS {
 
-    // Shortest path from node to target.
-    public int bfs( HashMap<String, List<String>> adjList, String node, String target) {
+    /** Shortest path from node to target. */
+    /**
+     * Time: O(V + E)
+     *      We visit each vertex and its edges
+     * Space: O(V)
+     *      -> For queue and visited set
+     */
+    public int bfs(Map<String, List<String>> adjList, String node, String target) {
         Queue<String> q = new ArrayDeque<>();
         HashSet<String> visit = new HashSet<>();
         q.add(node);

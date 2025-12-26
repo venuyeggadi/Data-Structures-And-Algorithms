@@ -1,4 +1,4 @@
-package com.venuyeggadi.problemsolving;
+package com.venuyeggadi.problemsolving.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;

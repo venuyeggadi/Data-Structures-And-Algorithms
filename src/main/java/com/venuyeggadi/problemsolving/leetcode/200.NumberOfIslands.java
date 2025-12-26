@@ -113,7 +113,109 @@ class NumberOfIslands_Solution2 {
  * Time: O(m * n)
  * Space: O(m * n)
  */
-// ToDo
 class NumberOfIslands_Solution3 {
+    public int numIslands(char[][] grid) {
+        int ROWS = grid.length, COLS = grid[0].length;
+        UnionFind uf = new UnionFind(ROWS * COLS);
+        int zeroes = 0;
 
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                if (grid[i][j] == '0') {
+                    ++zeroes;
+                    continue;
+                }
+                int index = computeIndex(i, j, COLS);
+                for (int[] dir : directions) {
+                    int newR = i + dir[0], newC = j + dir[1];
+                    if (newR >= 0 && newC >= 0 && newR < ROWS && newC < COLS && grid[newR][newC] == '1') {
+                        int newIndex = computeIndex(newR, newC, COLS);
+                        uf.union(index, newIndex);
+                    }
+                }
+            }
+        }
+
+        int components = uf.components();
+        return components - zeroes;
+    }
+
+    /** Way 2 */
+    public int numIslands2(char[][] grid) {
+        int ROWS = grid.length, COLS = grid[0].length;
+        UnionFind uf = new UnionFind(ROWS * COLS);
+        int islands = 0;
+
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                if (grid[i][j] == '1') {
+                    ++islands;
+                    int index = computeIndex(i, j, COLS);
+                    for (int[] dir : directions) {
+                        int newR = i + dir[0], newC = j + dir[1];
+                        if (newR >= 0 && newC >= 0 && newR < ROWS && newC < COLS && grid[newR][newC] == '1') {
+                            int newIndex = computeIndex(newR, newC, COLS);
+                            if (uf.union(index, newIndex))
+                                --islands;
+                        }
+                    }
+                }
+            }
+        }
+
+        return islands;
+    }
+
+    private static int[][] directions = new int[][] {{0, 1}, {1, 0}};
+
+    private static int computeIndex(int row, int col, int COLS) {
+        return row * COLS + col;
+    }
+
+    private static class UnionFind {
+        private int[] parent, rank;
+        private int components;
+
+        public UnionFind(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            components = n;
+            for (int i = 0; i < n; ++i) {
+                parent[i] = i;
+                rank[i] = 0;
+            }
+        }
+
+        public int find(int v) {
+            while (parent[v] != v) {
+                parent[v] = parent[parent[v]];
+                v = parent[v];
+            }
+
+            return parent[v];
+        }
+
+        public boolean union(int v1, int v2) {
+            int p1 = find(v1), p2 = find(v2);
+            if (p1 == p2)
+                return false;
+
+            if (rank[p1] > rank[p2]) {
+                parent[p2] = p1;
+            } else if (rank[p1] < rank[p2]) {
+                parent[p1] = p2;
+            } else {
+                parent[p2] = p1;
+                ++rank[p1];
+            }
+
+            --components;
+
+            return true;
+        }
+
+        public int components() {
+            return components;
+        }
+    }
 }

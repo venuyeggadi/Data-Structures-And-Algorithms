@@ -69,8 +69,53 @@ class RottingOranges_Solution1 {
     private static final int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 }
 
-
 class RottingOranges_Solution1_Way2Better {
+    public int orangesRotting(int[][] grid) {
+        int ROWS = grid.length, COLS = grid[0].length;
+
+        Queue<int[]> queue = new ArrayDeque<>();
+        int fresh = 0;
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                if (grid[i][j] == 2)
+                    queue.offer(new int[]{i, j});
+                else if (grid[i][j] == 1)
+                    ++fresh;
+            }
+        }
+
+        int minutes = 0;
+
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            boolean neighborsRotted = false;
+            for (int i = 0; i < size; ++i) {
+                int[] cell = queue.poll();
+                int row = cell[0], col = cell[1];
+                for (int[] dir : directions) {
+                    int r = row + dir[0], c = col + dir[1];
+                    if (Math.min(r, c) < 0 || r == ROWS || c == COLS || grid[r][c] == 0 || grid[r][c] == 2)
+                        continue;
+                    grid[r][c] = 2;
+                    queue.offer(new int[]{r, c});
+                    --fresh;
+                    neighborsRotted = true;
+                }
+            }
+            if (neighborsRotted)
+                ++minutes;
+        }
+
+        return fresh == 0 ? minutes : -1;
+    }
+
+    private static int[][] directions = new int[][] {
+            {0, 1}, {0, -1}, {1, 0}, {-1, 0}
+    };
+}
+
+
+class RottingOranges_Solution1_Way3Better {
     public int orangesRotting(int[][] grid) {
         int ROWS = grid.length, COLS = grid[0].length;
         Queue<int[]> queue = new ArrayDeque<>();

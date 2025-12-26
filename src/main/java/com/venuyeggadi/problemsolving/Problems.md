@@ -34,21 +34,21 @@
 * [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - [Solution]
 
 ## Linked List
-* [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - [Solution]
+* [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) - [Solution](./leetcode/206.ReverseLinkedList.java)
 * [Merge Two Linked Lists](https://leetcode.com/problems/merge-two-sorted-lists/) - [Solution]
 * [Reorder List](https://leetcode.com/problems/reorder-list/) - [Solution]
 * [Remove Nth Node from End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) - [Solution]
 * [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) - [Solution]
 * [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) - [Solution]
-* [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) - [Solution]
+* [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) - [Solution](./leetcode/141.LinkedListCycle.java)
 * [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - [Solution]
 * [LRU Cache](https://leetcode.com/problems/lru-cache/) - [Solution]
 * [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - [Solution]
 * [Reverse Nodes in K-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - [Solution]
 
 ## Stack
-* [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) - [Solution]
-* [Min Stack](https://leetcode.com/problems/min-stack/) - [Solution]
+* [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) - [Solution](./leetcode/20.ValidParenthesis.java)
+* [Min Stack](https://leetcode.com/problems/min-stack/) - [Solution](./leetcode/155.MinStack.java)
 * [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) - [Solution]
 * [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - [Solution]
 * [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - [Solution]
@@ -60,8 +60,8 @@
 * [Leetcode Explore - Queue & Stack](https://leetcode.com/explore/learn/card/queue-stack/)
 
 ## Binary Search - Searching
-* [Binary Search](https://leetcode.com/problems/binary-search/) - [Solution]
-* [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) - [Solution]
+* [Binary Search](https://leetcode.com/problems/binary-search/) - [Solution](./leetcode/704.BinarySearch.java)
+* [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) - [Solution](./leetcode/74.SearchA2DMatrix.java)
 * [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) - [Solution]
 * [Search Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) - [Solution]
 * [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - [Solution]
@@ -78,7 +78,7 @@
 ## Recursion & Backtracking
 * [Leetcode Explore - Recursion I](https://leetcode.com/explore/featured/card/recursion-i/)
 * [Leetcode Explore - Recursion II](https://leetcode.com/explore/learn/card/recursion-ii/)
-* [Subsets](https://leetcode.com/problems/subsets/) - [Solution]
+* [Subsets](https://leetcode.com/problems/subsets/) - [Solution](./leetcode/78.Subsets.java)
 * [Combination Sum](https://leetcode.com/problems/combination-sum/) - [Solution]
 * [Permutations](https://leetcode.com/problems/permutations/) - [Solution]
 * [Subsets II](https://leetcode.com/problems/subsets-ii/) - [Solution]
@@ -90,7 +90,7 @@
 
 ## Trees / Binary Tree / Binary Search Tree
 * [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) - [Solution]
-* [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) - [Solution]
+* [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) - [Solution](./leetcode/104.MaximumDepthOfBinaryTree.java)
 * [Diameter of a Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) - [Solution]
 * [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) - [Solution]
 * [Same Tree](https://leetcode.com/problems/same-tree/) - [Solution]
@@ -107,12 +107,15 @@
 
 
 ## Trie
-* [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/) - [Solution]
-* [Design Add and Search Word Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) - [Solution]
+* [Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/) - [Solution](./leetcode/208.ImplementTrie_PrefixTree.java)
+* [Design Add and Search Word Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) - [Solution](./leetcode/211.DesignAddAndSearchWordsDataStructure.java)
 * [Word Search II](https://leetcode.com/problems/word-search-ii/) - [Solution]
 * [Leetcode Explore - Trie](https://leetcode.com/explore/learn/card/trie/)
 
 ## Heap / Priority Queue
+### Pattern builders
+* [Final Array State After K Multiplication Operations I](https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/) - [Solution]()
+### Actual list
 * [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) - [Solution]
 * [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) - [Solution]
 * [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) - [Solution]
@@ -125,22 +128,22 @@
 * [William Fiset Graphs Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
 * [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution](./leetcode/200.NumberOfIslands.java)
 * [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) - [Solution](./leetcode/695.MaxAreaOfIsland.java)
-* [Clone Graph](https://leetcode.com/problems/clone-graph/) - [Solution]
+* [Clone Graph](https://leetcode.com/problems/clone-graph/) - [Solution](./leetcode/133.CloneGraph.java)
 * [Pacific Atlantic Waterflow](https://leetcode.com/problems/pacific-atlantic-water-flow/) - [Solution]
 * [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) - [Solution]
 * [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) - [Solution](./leetcode/994.RottingOranges.java)
 * [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) - [Solution]
-* [Course Schedule](https://leetcode.com/problems/course-schedule/) - [Solution]
+* [Course Schedule](https://leetcode.com/problems/course-schedule/) - [Solution](./leetcode/207.CourseSchedule.java)
 * [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) - [Solution]
-* [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - [Solution]
-* [Number of Connected Components in Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) - [Solution]
+* [Redundant Connection](https://leetcode.com/problems/redundant-connection/) - [Solution](./leetcode/684.RedundantConnection.java)
+* [Number of Connected Components in Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) - [Solution](./leetcode/323.NumberOfConnectedComponentsInAnUndirectedGraph.java)
 * [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) - [Solution]
 * [Word Ladder](https://leetcode.com/problems/word-ladder/) - [Solution]
 * [Leetcode Study Plan - Graph Theory](https://leetcode.com/study-plan/graph/)
 
 ## Advanced Graphs
 * [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/) - [Solution]
-* [Min Cost to Connect all Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - [Solution]
+* [Min Cost to Connect all Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) - [Solution](./leetcode/1584.MinCostToConnectAllPoints.java)
 * [Network Delay Time](https://leetcode.com/problems/network-delay-time/) - [Solution]
 * [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) - [Solution]
 * [Alien Dictionary](https://leetcode.com/problems/alien-dictionary/) - [Solution]
@@ -161,9 +164,9 @@
 * [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) - [Solution]
 
 ## 2-D Dynamic Programming
-* [Unique Paths](https://leetcode.com/problems/unique-paths/) - [Solution]
+* [Unique Paths](https://leetcode.com/problems/unique-paths/) - [Solution](./leetcode/62.UniquePaths.java)
 * [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - [Solution]
-* [Best Time to Buy/Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) - [Solution]
+* [Best Time to Buy/Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java)
 * [Coin Change II](https://leetcode.com/problems/coin-change-2/) - [Solution]
 * [Target Sum](https://leetcode.com/problems/target-sum/) - [Solution]
 * [Interleaving String](https://leetcode.com/problems/interleaving-string/) - [Solution]
@@ -196,20 +199,20 @@
 
 ## Math & Geometry
 * [Happy Number](https://leetcode.com/problems/happy-number/) - [Solution]
-* [Plus One](https://leetcode.com/problems/plus-one/) - [Solution]
+* [Plus One](https://leetcode.com/problems/plus-one/) - [Solution](./leetcode/66.PlusOne.java)
 * [Rotate Image](https://leetcode.com/problems/rotate-image/) - [Solution]
-* [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - [Solution]
+* [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - [Solution](./leetcode/54.SpiralMatrix.java)
 * [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) - [Solution]
 * [Pow(x, n)](https://leetcode.com/problems/powx-n/) - [Solution]
 * [Multiply Strings](https://leetcode.com/problems/multiply-strings/) - [Solution]
 * [Detect Squares](https://leetcode.com/problems/detect-squares/) - [Solution]
 
 ## Bit Manipulation
-* [Single Number](https://leetcode.com/problems/single-number/) - [Solution]
+* [Single Number](https://leetcode.com/problems/single-number/) - [Solution](./leetcode/136.SingleNumber.java)
 * [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) - [Solution]
-* [Counting Bits](https://leetcode.com/problems/counting-bits/) - [Solution]
+* [Counting Bits](https://leetcode.com/problems/counting-bits/) - [Solution](./leetcode/338.CountingBits.java)
 * [Reverse Bits](https://leetcode.com/problems/reverse-bits/) - [Solution]
-* [Missing Number](https://leetcode.com/problems/missing-number/) - [Solution]
+* [Missing Number](https://leetcode.com/problems/missing-number/) - [Solution](./leetcode/268.MissingNumber.java)
 * [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) - [Solution]
 * [Reverse Integer](https://leetcode.com/problems/reverse-integer/) - [Solution]
 

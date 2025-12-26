@@ -8,9 +8,10 @@ import java.util.Queue;
  */
 
 /**
+ * Optimal
  * BFS - visit layer by layer and increase the distance
- * Time: O(n^2)
- * Space: O(n^2)
+ * Time: O(n^2)  // O(m * n)
+ * Space: O(n^2)  // O(m * n)
  */
 class ShortestPathInABinaryMatrix_Solution1 {
     public int shortestPathBinaryMatrix(int[][] grid) {
@@ -144,3 +145,46 @@ class ShortestPathInABinaryMatrix_Solution3 {
 }
 
 
+/** For reference only */
+
+/**
+ * Bruteforce
+ * DFS
+ * Time: O(8^(n*n))
+ * Space: O(n * n)
+ */
+class ShortestPathInABinaryMatrix_SolutionBruteforce {
+    public int shortestPathBinaryMatrix(int[][] grid) {
+        int ROWS = grid.length, COLS = grid[0].length;
+        if (grid[0][0] == 1 || grid[ROWS - 1][COLS - 1] == 1)
+            return -1;
+
+        boolean[][] visited = new boolean[ROWS][COLS];
+
+        int min = dfs(grid, 0, 0, visited);
+
+        return min == Integer.MAX_VALUE ? -1 : min;
+    }
+
+    private int dfs(int[][] grid, int row, int col, boolean[][] visited) {
+        if (Math.min(row, col) < 0 || row == grid.length || col == grid[0].length || visited[row][col] || grid[row][col] == 1)
+            return Integer.MAX_VALUE;
+
+        if (row == grid.length - 1 && col == grid[0].length - 1)
+            return 1;
+
+        visited[row][col] = true;
+        int min = Integer.MAX_VALUE;
+        for (int[] dir : directions) {
+            int r = row + dir[0], c = col + dir[1];
+            min = Math.min(min, dfs(grid, r, c, visited));
+        }
+        visited[row][col] = false;
+
+        return min == Integer.MAX_VALUE ? Integer.MAX_VALUE : 1 + min;
+    }
+
+    private static int[][] directions = new int[][] {
+            {0, 1}, {0, -1}, {1, 0}, {-1, 0}, {-1, -1}, {-1, 1}, {1, 1}, {1, -1}
+    };
+}

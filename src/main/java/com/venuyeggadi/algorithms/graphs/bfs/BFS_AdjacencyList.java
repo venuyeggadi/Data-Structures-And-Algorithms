@@ -1,9 +1,6 @@
 package com.venuyeggadi.algorithms.graphs.bfs;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 
 /**
@@ -24,15 +21,18 @@ public class BFS_AdjacencyList {
         bfs(adjacencyList, 4);
     }
 
-
     /**
-     * We should mark the vertex as visited immediately after visiting it, not after adding it to queue and the accessing it.
+     * We should mark the vertex as visited immediately after visiting it, not after adding it to queue and then accessing it.
      *
      * Time: O(v + e) or (n + e)
+     *      As we visit each vertex and then visit (iterate) all of its neighbors.
      * Space: O(v)
-     * where v or n -> number of vertices
-     *       e -> number of edges
+     *      v -> for queue
+     *      v -> for visited array
      *
+     * where
+     *      v or n -> number of vertices
+     *      e -> number of edges
      */
     private static void bfs(List<List<Integer>> adjacencyList, int startingVertex) {
         Queue<Integer> queue = new ArrayDeque<>();

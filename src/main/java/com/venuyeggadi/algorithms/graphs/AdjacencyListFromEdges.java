@@ -19,13 +19,13 @@ public class AdjacencyListFromEdges {
 
         for (String[] edge : edges) {
             String s = edge[0], d = edge[1];
-            if (!adjacencyList.containsKey(s))
-                adjacencyList.put(s, new ArrayList<>());
-            if (!adjacencyList.containsKey(d))
-                adjacencyList.put(d, new ArrayList<>());
+            adjacencyList.putIfAbsent(s, new ArrayList<>());
+            adjacencyList.putIfAbsent(d, new ArrayList<>());
 
             adjacencyList.get(s).add(d);
+            adjacencyList.get(d).add(s); /** if the graph is undirected */
         }
+
         return adjacencyList;
     }
 }

@@ -33,13 +33,49 @@ package com.venuyeggadi.problemsolving.leetcode;
  * }
  */
 
-//#1
-/*
-Time: O(n)
-Space: O(n)
-    Due to call stack.
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Bruteforce
+ * Time: O(n)
+ * Space: O(n)
+ *      For the list
  */
-class SwapNodesInPairs1 {
+class SwapNodesInPairs_Solution1 {
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+
+        List<ListNode> list = new ArrayList<>();
+        while (head != null) {
+            list.add(head);
+            head = head.next;
+        }
+
+        for (int i = 1; i < list.size(); i += 2) {
+            ListNode temp = list.get(i - 1);
+            list.set(i - 1, list.get(i));
+            list.set(i, temp);
+        }
+
+        for (int i = 0; i < list.size() - 1; ++i) {
+            list.get(i).next = list.get(i + 1);
+        }
+        list.get(list.size() - 1).next = null;
+
+        return list.get(0);
+    }
+}
+
+
+/**
+ * Iteration
+ * Time: O(n)
+ * Space: O(1)
+ */
+class SwapNodesInPairs2 {
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null)
             return head;
@@ -55,13 +91,23 @@ class SwapNodesInPairs1 {
 }
 
 
-//#2
-/*
-Time:
-Space:
+/**
+ * Recursion
+ * Time: O(n)
+ * Space: O(n)
+ * Due to call stack.
  */
-//class SwapNodesInPairs2 {
-//    public ListNode swapPairs(ListNode head) {
-//
-//    }
-//}
+class SwapNodesInPairs3 {
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+
+        ListNode tail = swapPairs(head.next.next);
+
+        ListNode resultHead = head.next;
+        resultHead.next = head;
+        head.next = tail;
+
+        return resultHead;
+    }
+}

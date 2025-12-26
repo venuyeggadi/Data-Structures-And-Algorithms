@@ -146,11 +146,90 @@ class MaxAreaOfIsland_Solution2_Way2 {
 
 
 /**
- * Disjoint Set (UnionFind)
+ * Disjoint Set (UnionFind) - Union By Size
  * Time: O(m * n)
  * Space: O(m * n)
  */
 // ToDo
 class MaxAreaOfIsland_Solution3 {
+    public int maxAreaOfIsland(int[][] grid) {
+        int ROWS = grid.length, COLS = grid[0].length;
+        UnionFind uf = new UnionFind(ROWS * COLS);
 
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                if (grid[i][j] == 0)
+                    continue;
+                int index = computeIndex(i, j, COLS);
+                for (int[] dir : directions) {
+                    int r = i + dir[0], c = j + dir[1];
+                    if (r >= 0 && c >= 0 && r < ROWS && c < COLS && grid[r][c] == 1) {
+                        int neighborIndex = computeIndex(r, c, COLS);
+                        uf.union(index, neighborIndex);
+                    }
+                }
+            }
+        }
+
+        int max = 0;
+
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                if (grid[i][j] == 1)
+                    max = Math.max(max, uf.size(computeIndex(i, j, COLS)));
+            }
+        }
+
+        return max;
+    }
+
+    private int computeIndex(int r, int c, int COLS) {
+        return r * COLS + c;
+    }
+
+    private static int[][] directions = new int[][] {
+            {0, 1}, {0, -1}, {1, 0}, {-1, 0}
+    };
+
+    private static class UnionFind {
+        public int[] parent, size;
+
+        public UnionFind(int n) {
+            parent = new int[n];
+            size = new int[n];
+            for (int i = 0; i < n; ++i) {
+                parent[i] = i;
+                size[i] = 1;
+            }
+        }
+
+        public int find(int v) {
+            while (v != parent[v]) {
+                parent[v] = parent[parent[v]];
+                v = parent[v];
+            }
+
+            return parent[v];
+        }
+
+        public boolean union(int v1, int v2) {
+            int p1 = find(v1), p2 = find(v2);
+            if (p1 == p2)
+                return false;
+
+            if (size[p1] > size[p2]) {
+                parent[p2] = p1;
+                size[p1] += size[p2];
+            } else {
+                parent[p1] = p2;
+                size[p2] += size[p1];
+            }
+
+            return true;
+        }
+
+        public int size(int v) {
+            return size[parent[v]];
+        }
+    }
 }

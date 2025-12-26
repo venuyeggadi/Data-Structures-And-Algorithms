@@ -2,21 +2,25 @@ package com.venuyeggadi.algorithms.graphs;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Queue;
 
 public class ShortestPath_Matrix_BFS {
 
     public static void main(String[] args) {
-        int[][] grid = {{0, 0, 0, 0},
-                {1, 1, 0, 0},
-                {0, 0, 0, 1},
-                {0, 1, 0, 0}};
+        int[][] grid =
+                {{0, 0, 0, 0},
+                 {1, 1, 0, 0},
+                 {0, 0, 0, 1},
+                 {0, 1, 0, 0}};
 
         System.out.println(bfs(grid, 0, 0));
     }
 
-    private static final int[][] directions = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
     /** Shortest path from top left to bottom right */
+    /**
+     * Time: O(m * n)
+     * Space: O(m * n)
+     */
     public static int bfs(int[][] grid, int row, int col) {
         int ROWS = grid.length, COLS = grid[0].length;
         boolean[][] visited = new boolean[ROWS][COLS];
@@ -50,6 +54,8 @@ public class ShortestPath_Matrix_BFS {
             length++;
         }
 
-        return length; // This should never be called
+        return length; /** This should/will never be called **/
     }
+
+    private static final int[][] directions = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 }

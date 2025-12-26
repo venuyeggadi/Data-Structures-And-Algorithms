@@ -96,5 +96,38 @@ class CourseSchedule_Solution1Way2 {
 
 /**
  * Topological Sort (Kahn's Algorithm)
- *
+ * Time: O(V + E)
+ * Space: O(V + E)
  */
+class Solution_Solution2 {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adjList = new ArrayList<>();
+        int[] inDegree = new int[numCourses];
+
+        for (int i = 0; i < numCourses; ++i)
+            adjList.add(new ArrayList<>());
+        for (int[] edge : prerequisites) {
+            adjList.get(edge[1]).add(edge[0]);
+            inDegree[edge[0]]++;
+        }
+
+        Queue<Integer> queue = new ArrayDeque<>();
+
+        for (int v = 0; v < numCourses; ++v) {
+            if (inDegree[v] == 0)
+                queue.offer(v);
+        }
+
+        int finishedCourses = 0;
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            ++finishedCourses;
+            for (int nei : adjList.get(node)) {
+                if (--inDegree[nei] == 0)
+                    queue.offer(nei);
+            }
+        }
+
+        return finishedCourses == numCourses;
+    }
+}
