@@ -1,7 +1,18 @@
 # Index
-## Binary Search ***
 
-## Graphs
+### Stack
+* Monotonic Stack
+
+### Binary Search ***
+
+### Recursion
+
+### Backtracking
+
+### Trees
+
+
+### Graphs
 * DFS ***
 * BFS ***
 * Reachability
@@ -21,6 +32,37 @@
     * Eager Prim's
   * Kruskal's
 
+
+### Dynamic Programming
+* 1D Dynamic Programming
+* 2D Dynamic Programming
+* 0/1 Knapsack
+* Unbounded Knapsack
+* Least Common Subsequence (LCS)
+* Palindromes
+
+
+# Recursion
+* One-branch recursion
+  * Ex: Factorial
+  * [Reverse Linked List](./problemsolving/leetcode/206.ReverseLinkedList.java)
+* Two-branch recursion
+  * Fibonacci
+  * [Fibonacci Number](./problemsolving/leetcode/509.FibonacciNumber.java)
+  * [Climbing Stairs](./problemsolving/leetcode/70.ClimbingStairs.java)
+
+# Trees
+* Form trees from traversals (pre-order, post-order, in-order)
+
+# Backtracking
+* Similar to DFS.
+* [Template for backtracking](algorithms/backtracking/BackTrackingTemplate.java)
+* [Path exists from the root of the tree to a leaf node](algorithms/backtracking/PathFromRootToLeafOfATree.java)
+* [Subsets](algorithms/backtracking/Subsets.java)
+* Problems
+  * [Path Sum](./problemsolving/leetcode/112.PathSum.java)
+  * [Subsets](./problemsolving/leetcode/78.Subsets.java)
+  * [Combination Sum](./problemsolving/leetcode/CombinationSum.java)
 
 # Graphs
 * Representations
@@ -73,5 +115,44 @@ By definition, all rooted trees have a topological ordering since they do not co
 * [Topological Sort Kahn's](./algorithms/graphs/topologicalsort/TopologicalSort_Kahns.java)
 
 
+# Dynamic Programming
+* Solving a problem as a result of the combination of sub-problems. Caching the results of the sub-problems
+  so that they can be re-used for overlapping sub-problems.
+* Top-down (memoization) -> Take a recursive solution and add caching to it.
+* Bottom-up (tabulation) (sometimes referred to as true dynamic programming)
+* 1D Dynamic Programming
+  * [Fibonacci](https://leetcode.com/problems/fibonacci-number/) - [Solution](./problemsolving/leetcode/509.FibonacciNumber.java)
+  * [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) - [Solution](./problemsolving/leetcode/70.ClimbingStairs.java)
+  * [House Robber](https://leetcode.com/problems/house-robber/) - [Solution](./problemsolving/leetcode/198.HouseRobber.java)
+  * Solutions are recursive most of the time.
+    1. Recursive solution, then
+    2. Memoize (Top-down), then
+    3. Tabulation (Bottom-up), then
+    4. See if space can be optimized (may not always need all previous values, only last few values are enough most of the times)
+* 2D Dynamic Programming
+  * [Unique Paths](https://leetcode.com/problems/unique-paths/) - [Solution](./problemsolving/leetcode/62.UniquePaths.java)
+  * [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) - [Solution](./problemsolving/leetcode/63.UniquePathsII.java)
+  * [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - [Solution](./problemsolving/leetcode/1143.LongestCommonSubsequence.java)
+* 0/1 Knapsack
+  * [Partition Equal Subset Sum](./problemsolving/leetcode/PartitionEqualSubsetSum.java)
+  * [Target Sum](./problemsolving/leetcode/TargetSum.java)
+  * [Ones and Zeroes](./problemsolving/leetcode/OnesAndZeroes.java)
+  * [Last Stone Weight](./problemsolving/leetcode/LastStoneWeight.java)
+* Unbounded Knapsack
+  * [Coin Change](./problemsolving/leetcode/CoinChange.java)
+  * [Coin Change II](./problemsolving/leetcode/CoinChangeII.java)
+  * [Minimum Cost for Tickets](./problemsolving/leetcode/MinimumCostForTickets.java)
+* Least Common Subsequence (LCS)
+  * [Longest Common Subsequence](./problemsolving/leetcode/LongestCommonSubsequence.java)
+  * [Edit Distance](./problemsolving/leetcode/EditDistance.java)
+  * [Distinct Subsequences](./problemsolving/leetcode/DistinctSubsequences.java)
+  * [Interleaving String](./problemsolving/leetcode/InterleavingString.java)
+  * [ShortestCommonSupersequence](./problemsolving/leetcode/ShortestCommonSupersequence.java)
+* Palindromes
+  * [Longest Palindromic Substring](./problemsolving/leetcode/LongestPalindromicSubstring.java)
+  * [Palindromic Substrings](./problemsolving/leetcode/PalindromicSubstrings.java)
+  * [Longest Palindromic Subsequence](./problemsolving/leetcode/LongestPalindromicSubsequence.java)
 
 
+# Math
+* [Pow(x, n)](./problemsolving/leetcode/50.Pow_n_x.java)

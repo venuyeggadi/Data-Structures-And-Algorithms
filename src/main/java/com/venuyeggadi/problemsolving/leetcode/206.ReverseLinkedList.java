@@ -20,8 +20,8 @@ import java.util.ArrayList;
  */
 class ReverseLinkedList_Solution1 {
     public ListNode reverseList(ListNode head) {
-        if (head == null) return null;
-        if (head.next == null) return head;
+        if (head == null || head.next == null)
+            return head;
 
         int lastValue = removeLast(head);
         ListNode reversedListHead = new ListNode(lastValue, null);
@@ -83,6 +83,7 @@ class ReverseLinkedList_Solution2 {
 
 
 /**
+ * Optimal
  * Time: O(n)
  * Space: O(1)
  */
@@ -109,9 +110,7 @@ class ReverseLinkedList_Solution3 {
  */
 class ReverseLinkedList_Solution4 {
     public ListNode reverseList(ListNode head) {
-        if (head == null)
-            return null;
-        if (head.next == null)
+        if (head == null || head.next == null)
             return head;
 
         ListNode remainingListHead = head.next;

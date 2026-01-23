@@ -36,11 +36,15 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 */
 
-
 import java.util.Arrays;
+
 
 /**
  * Recursion / DFS  (Top-down approaches)
+ * Intuition
+ *      The total paths from cell(i, j) is the sum of the paths from the cell right to it and the cell left to it.
+ *      i.e., uniquePaths(i, j+1) + uniquePaths(i+1, j).
+ *
  * Time: O(2 ^ (m + n))
  * Space: O(m + n)
  *
@@ -49,7 +53,7 @@ import java.util.Arrays;
 // Way1 - How many paths lead to this point.
 class UniquePathsSolution1Way1 {
     public int uniquePaths(int m, int n) {
-        if(m == 1 || n == 1)
+        if (m == 1 || n == 1)
             return 1;
         return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
     }
@@ -109,23 +113,24 @@ class UniquePathsSolution2  {
  * Time: O(m*n)
  * Space: O(m*n)
  */
-class UniquePathsSolution3 {
+class UniquePaths_Solution3 {
     public int uniquePaths(int m, int n) {
         int[][] paths = new int[m][n];
-        for(int i = 0; i < m; i++) {
-            for(int j = 0; j < n; j++) {
-                if(i == 0 || j == 0)
+
+        for(int i = m-1; i >= 0; --i) {
+            for(int j = n-1; j >= 0; --j) {
+                if (i == m-1 || j == n-1)
                     paths[i][j] = 1;
                 else
                     paths[i][j] = paths[i][j - 1] + paths[i - 1][j];
             }
         }
-        
+
         return paths[m - 1][n - 1];
     }
 }
 
-class UniquePathsSolution3Way2 {
+class UniquePaths_Solution3_Way1 {
     public int uniquePaths(int m, int n) {
         int[][] paths = new int[m + 1][n + 1];
         paths[1][1] = 1;
@@ -142,7 +147,7 @@ class UniquePathsSolution3Way2 {
     }
 }
 
-class UniquePathsSolution3Way3 {
+class UniquePaths_Solution3_Way2 {
     public int uniquePaths(int m, int n) {
         int[][] paths = new int[m + 1][n + 1];
         paths[1][1] = 1;
@@ -157,13 +162,29 @@ class UniquePathsSolution3Way3 {
     }
 }
 
+class UniquePaths_Solution3_Way3 {
+    public int uniquePaths(int m, int n) {
+        int[][] paths = new int[m + 1][n + 1];
+        paths[m][n - 1] = 1;
+
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                paths[i][j] = paths[i][j+1] + paths[i+1][j];
+            }
+        }
+
+        return paths[0][0];
+    }
+}
+
 /**
- * Dynamic programming (bottom-up)
- * Same as above using only one array of size n.
+ * Dynamic programming (bottom-up) - Space optimized
+ *      Same as above using only one array of size n.
+ *
  * Time: O(m*n)
  * Space: O(n) - Assuming that the locally initialized row array gets garbage collected for each iteration.
  */
-class UniquePathsSolution4 {
+class UniquePaths_Solution4 {
     public int uniquePaths(int m, int n) {
         int[] row = new int[n];
         Arrays.fill(row, 1);
@@ -180,6 +201,28 @@ class UniquePathsSolution4 {
         }
 
         return row[n - 1];
+    }
+}
+
+/**
+ * Dynamic programming (bottom-up) - Space optimized (Optimal)
+ *      Same as above using only one array of size n.
+ *      Derived from Solution3_Way3
+ * Time: O(m * n)
+ * Space: O(n)
+ */
+class UniquePaths_Solution5 {
+    public int uniquePaths(int m, int n) {
+        int[] row = new int[n + 1];
+        row[n - 1] = 1;
+
+        for (int r = m - 1; r >= 0; --r) {
+            for (int c = n - 1; c >= 0; --c) {
+                row[c] = row[c] + row[c + 1];
+            }
+        }
+
+        return row[0];
     }
 }
 
@@ -217,11 +260,11 @@ class UniquePathsSolution5 {
         int r = m-1; //or n-1
         if(N-r < r)
             r = N - r;//C(N, r) = C(N, N-r); C = combination
-        long numerator = 1, denominator = 1, gcd;
+        long numerator = 1, denominator = 1;
         for(int i = 1; i <= r; i++) {
             numerator *= (N-i+1);
             denominator *= i;
-            gcd = gcd(numerator, denominator);
+            long gcd = gcd(numerator, denominator);
             numerator /= gcd;
             denominator /= gcd;
         }

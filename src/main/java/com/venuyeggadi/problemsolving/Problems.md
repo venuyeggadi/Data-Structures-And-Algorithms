@@ -9,7 +9,7 @@
 ## Arrays and Hashing
 * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/217.ContainsDuplicate.java)
 * [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/242.ValidAnagram.java)
-* [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/1.TwoSum.java)
+* [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/1.TwoSum.java) ***
 * [Group Anagrams](https://leetcode.com/problems/group-anagrams/) - [Solution](./leetcode/49.GroupAnagrams.java)
 * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/347.TopKFrequentElements.java)
 * [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - [Solution](./leetcode/238.ProductOfArrayExceptSelf.java)
@@ -23,10 +23,9 @@
 * [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution](./leetcode/167.TwoSumII.java)
 * [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/15.ThreeSum.java)
 * [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/11.ContainerWithMostWater.java)
-* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/42.TrappingRainWater.java)
-
+* [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/42.TrappingRainWater.java) ***
 ## Sliding Window
-* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java)
+* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java) ***
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution](./leetcode/3.LongestSubstringWithoutRepeatingCharacters.java)
 * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution]
 * [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution]
@@ -42,7 +41,7 @@
 * [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) - [Solution]
 * [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) - [Solution](./leetcode/141.LinkedListCycle.java)
 * [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) - [Solution]
-* [LRU Cache](https://leetcode.com/problems/lru-cache/) - [Solution]
+* [LRU Cache](https://leetcode.com/problems/lru-cache/) - [Solution]() ***
 * [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) - [Solution]
 * [Reverse Nodes in K-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - [Solution]
 
@@ -126,7 +125,7 @@
 
 ## Graphs
 * [William Fiset Graphs Playlist](https://youtube.com/playlist?list=PLDV1Zeh2NRsDGO4--qE8yH72HFL1Km93P)
-* [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution](./leetcode/200.NumberOfIslands.java)
+* [Number of Islands](https://leetcode.com/problems/number-of-islands/) - [Solution](./leetcode/200.NumberOfIslands.java) ***
 * [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) - [Solution](./leetcode/695.MaxAreaOfIsland.java)
 * [Clone Graph](https://leetcode.com/problems/clone-graph/) - [Solution](./leetcode/133.CloneGraph.java)
 * [Pacific Atlantic Waterflow](https://leetcode.com/problems/pacific-atlantic-water-flow/) - [Solution]
@@ -152,7 +151,7 @@
 ## 1-D Dynamic Programming
 * [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) - [Solution]
 * [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/) - [Solution]
-* [House Robber](https://leetcode.com/problems/house-robber/) - [Solution]
+* [House Robber](https://leetcode.com/problems/house-robber/) - [Solution](./leetcode/198.HouseRobber.java)
 * [House Robber II](https://leetcode.com/problems/house-robber-ii/) - [Solution]
 * [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) - [Solution]
 * [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) - [Solution]
@@ -168,7 +167,7 @@
 * [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/) - [Solution]
 * [Best Time to Buy/Sell Stock With Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java)
 * [Coin Change II](https://leetcode.com/problems/coin-change-2/) - [Solution]
-* [Target Sum](https://leetcode.com/problems/target-sum/) - [Solution]
+* [Target Sum](https://leetcode.com/problems/target-sum/) - [Solution]() ***
 * [Interleaving String](https://leetcode.com/problems/interleaving-string/) - [Solution]
 * [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) - [Solution]
 * [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/) - [Solution]
@@ -178,7 +177,7 @@
 * [Leetcode Study Plan - Dynamic Programming](https://leetcode.com/study-plan/dynamic-programming/)
 
 ## Greedy
-* [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) - [Solution]
+* [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) - [Solution](./leetcode/53.MaximumSubarray.java) ***
 * [Jump Game](https://leetcode.com/problems/jump-game/) - [Solution]
 * [Jump Game II](https://leetcode.com/problems/jump-game-ii/) - [Solution]
 * [Gas Station](https://leetcode.com/problems/gas-station/) - [Solution]
@@ -189,7 +188,7 @@
 
 ## Intervals
 * [Insert Interval](https://leetcode.com/problems/insert-interval/) - [Solution]
-* [Merge Intervals](https://leetcode.com/problems/merge-intervals/) - [Solution]
+* [Merge Intervals](https://leetcode.com/problems/merge-intervals/) - [Solution]() ***
 * [Non-Overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) - [Solution]
 * [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) - [Solution]
 * [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) - [Solution]
@@ -203,7 +202,7 @@
 * [Rotate Image](https://leetcode.com/problems/rotate-image/) - [Solution]
 * [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) - [Solution](./leetcode/54.SpiralMatrix.java)
 * [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/) - [Solution]
-* [Pow(x, n)](https://leetcode.com/problems/powx-n/) - [Solution]
+* [Pow(x, n)](https://leetcode.com/problems/powx-n/) - [Solution](./leetcode/50.Pow_n_x.java)
 * [Multiply Strings](https://leetcode.com/problems/multiply-strings/) - [Solution]
 * [Detect Squares](https://leetcode.com/problems/detect-squares/) - [Solution]
 

@@ -15,7 +15,7 @@ class FibonacciNumber_Solution1 {
 }
 
 /**
- * Memoization (Top-Down Dynamic Programming)
+ * Top-Down Dynamic Programming (Memoization)
  * Time: O(n)
  * Space: O(n + n) = O(n)
  */

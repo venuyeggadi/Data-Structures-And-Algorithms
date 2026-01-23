@@ -102,13 +102,13 @@ class MaximumSubarray_Solution1Way2 {
  * Kadane's
  * (n), O(1)
  */
-class MaximumSubarray_Solution2Way1 {
+class MaximumSubarray_Solution2 {
     public int maxSubArray(int[] nums) {
         int sum = 0, max = nums[0];
         for(int num : nums) {
             sum += num;
             max = Math.max(sum, max);
-            if(sum < 0) // Resetting sum. Because negative sum doesn't contribute for a max sum. And max sum till that point is already captured.
+            if(sum < 0) /** Resetting sum. Because negative sum doesn't contribute for a max sum. And max sum till that point is already captured. */
                 sum = 0;
         }
         
@@ -117,11 +117,11 @@ class MaximumSubarray_Solution2Way1 {
 }
 
 // Same solution
-class MaximumSubarray_Solution2Way2 {
+class MaximumSubarray_Solution2_Way2 {
     public int maxSubArray(int[] nums) {
         int sum = 0, max = nums[0];
         for(int num : nums) {
-            sum = Math.max(sum+num, num); // Sets sum to num if sum < 0. Same as re-setting sum to 0 if it's < 0.
+            sum = Math.max(sum+num, num); /** Sets sum to num if sum < 0. Same as re-setting sum to 0 if it's < 0. */
             max = Math.max(max, sum);
         }
         
@@ -130,7 +130,7 @@ class MaximumSubarray_Solution2Way2 {
 }
 
 // If we want the indices
-class MaximumSubarray_Solution2Indices {
+class MaximumSubarray_Solution2_Indices {
     public int maxSubArray(int[] nums) {
         int max = nums[0], maxL = 0, maxR = 0;
         int currSum = 0, l = 0, r = 0;
