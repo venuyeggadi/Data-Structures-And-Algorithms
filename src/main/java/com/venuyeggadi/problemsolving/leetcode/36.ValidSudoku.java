@@ -54,12 +54,12 @@ import java.util.Set;
 
 
 // Solution 1
-/*
-Bruteforce
-Time complexity: O(9^2 * 9^2 * 3^4) = O(1)
-Space complexity: O(9^2 + 9^2 + 9^2) = O(1)
+/**
+ * Bruteforce
+ * Time complexity: O(9^2 * 9^2 * 3^4) = O(1)
+ * Space complexity: O(9) = O(1)
  */
-class ValidSudokuSolution {
+class ValidSudoku_Solution1 {
     public boolean isValidSudoku(char[][] board) {
         Set<Character> set;
 
@@ -96,12 +96,12 @@ class ValidSudokuSolution {
 
 
 // Solution 2
-/*
-One pass
-Time complexity: O(9^2) = O(1)
-Space complexity: O(9^2 + 9^2 + 9^2) = O(1)
+/**
+ * One pass
+ * Time complexity: O(9^2) = O(1)
+ * Space complexity: O(9^2 + 9^2 + 9^2) = O(1)
  */
-class ValidSudokuSolution2 {
+class ValidSudoku_Solution2 {
     public boolean isValidSudoku(char[][] board) {
         Map<Integer, Set<Character>> rowMap = new HashMap<>();
         Map<Integer, Set<Character>> columnMap = new HashMap<>();
@@ -127,10 +127,10 @@ class ValidSudokuSolution2 {
 
 
 // Solution 3
-/*
-Using a single set
-Time complexity: O(9^2) = O(1)
-Space complexity: O(9^2) = O(1)
+/**
+ * Using a single set
+ * Time complexity: O(9^2) = O(1)
+ * Space complexity: O(9^2) = O(1)
  */
 class ValidSudokuSolution3 {
     public boolean isValidSudoku(char[][] board) {

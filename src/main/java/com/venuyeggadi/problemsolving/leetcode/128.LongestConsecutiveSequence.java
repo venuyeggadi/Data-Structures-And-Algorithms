@@ -27,6 +27,7 @@ import java.util.*;
  *
  * Time complexity: O(nlog(n) + n) = O(nlog(n))
  * Space complexity: O(n) -> for merge sort, O(log n) for quick sort
+ *
  * Note: If we make a copy of the given array instead of sorting in-place, space complexity = O(n)
  */
 class LongestConsecutiveSequence_Solution1 {
@@ -67,7 +68,7 @@ class LongestConsecutiveSequence_Solution1_Better {
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i + 1] == nums[i])
                 continue;
-            else if (nums[i + 1] == nums[i] + 1) {
+            if (nums[i + 1] == nums[i] + 1) {
                 ++count;
                 max = Math.max(max, count);
             }
@@ -91,7 +92,7 @@ class LongestConsecutiveSequence_Solution1_Better {
  * Time complexity: O(n^2)
  * Space complexity: O(n)
  */
-class LongestConsecutiveSequenceSolution2 {
+class LongestConsecutiveSequence_Solution2 {
     public int longestConsecutive(int[] nums) {
         if (nums.length < 2)
             return nums.length;
@@ -155,6 +156,9 @@ class LongestConsecutiveSequence_Solution3 {
 /**
  * Union Find - Disjoint Set
  * Union By Rank
+ *
+ *  Time: O(n.a(n)) ~ O(n)
+ *  Space: O(n)
  */
 class LongestConsecutiveSequence_Solution4 {
     public int longestConsecutive(int[] nums) {
@@ -229,6 +233,9 @@ class LongestConsecutiveSequence_Solution4 {
 /**
  * Union Find - Disjoint Set
  * Union By Size
+ *
+ * Time: O(n.a(n)) ~ O(n)
+ * Space: O(n)
  */
 class LongestConsecutiveSequence_Solution4_Way1 {
     public int longestConsecutive(int[] nums) {
@@ -306,17 +313,21 @@ class LongestConsecutiveSequence_Solution4_Way1 {
  */
 class LongestConsecutiveSequence_Solution5 {
     public int longestConsecutive(int[] nums) {
-        Map<Integer, Integer> mp = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         int res = 0;
 
         for (int num : nums) {
-            if (!mp.containsKey(num)) {
-                mp.put(num, mp.getOrDefault(num - 1, 0) + mp.getOrDefault(num + 1, 0) + 1);
-                mp.put(num - mp.getOrDefault(num - 1, 0), mp.get(num));
-                mp.put(num + mp.getOrDefault(num + 1, 0), mp.get(num));
-                res = Math.max(res, mp.get(num));
-            }
+            if (map.containsKey(num))
+                continue;
+            int leftLength = map.getOrDefault(num - 1, 0);
+            int rightLength = map.getOrDefault(num + 1, 0);
+            int currentLength = 1 + leftLength + rightLength;
+            map.put(num, currentLength);
+            map.put(num - leftLength, currentLength);
+            map.put(num + rightLength, currentLength);
+            res = Math.max(res, currentLength);
         }
+
         return res;
     }
 }

@@ -20,20 +20,18 @@ package com.venuyeggadi.problemsolving.leetcode;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// Solution 0
-/*
-Use to two loops. For each element in the array, traverse the whole array to check if another exists.
-Time complexity: O(n^2) = n + (n-1) + ... + 1 = n * (n + 1) /2
-Space complexity: O(1)
+/** Solution 0
+ * Use to two loops. For each element in the array, traverse the whole array to check if another exists.
+ * Time complexity: O(n^2) = n + (n-1) + ... + 1 = n * (n + 1) /2
+ * Space complexity: O(1)
  */
 
-// Solution 1
-/*
-Sort the array. Traverse the array and if successive elements are equal return true.
-Time Complexity: O(n.log(n))
-Space Complexity: O(log(n)) for Quicksort and O(n) for Mergesort.
+/** Solution 1
+ * Sort the array. Traverse the array and if successive elements are equal return true.
+ * Time Complexity: O(n.log(n))
+ * Space Complexity: O(log(n)) for Quicksort and O(n) for Mergesort.
  */
-class ContainsDuplicateSolution1 {
+class ContainsDuplicate_Solution1 {
     public boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);
         int bound = nums.length-1;
@@ -47,13 +45,12 @@ class ContainsDuplicateSolution1 {
 }
 
 
-// Solution 2
-/*
+/**
 Take a map and count the occurrences of each number. If count is greater than 1, return true.
 Time Complexity: O(n)
 Space Complexity: O(n)
  */
-class ContainsDuplicateSolution2 {
+class ContainsDuplicate_Solution2 {
     public boolean containsDuplicate(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
@@ -70,7 +67,7 @@ class ContainsDuplicateSolution2 {
         return false;
     }
 }
-class ContainsDuplicateSolution2Better {
+class ContainsDuplicate_Solution2Better {
     public boolean containsDuplicate(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums)
@@ -96,16 +93,14 @@ class ContainsDuplicateSolutionAnother {
 
 
 
-//Optimal
-// Solution 3
-/*
+/** Optimal
 Take a set and add elements one by one. Before adding an element check if it already exists.
 If exists return true.
 
 Time Complexity: O(n)
 Space Complexity: O(n)
  */
-class ContainsDuplicateSolution3 {
+class ContainsDuplicate_Solution3 {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -116,7 +111,7 @@ class ContainsDuplicateSolution3 {
         return false;
     }
 }
-class ContainsDuplicateSolution3Better {
+class ContainsDuplicate_Solution3Better {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums)
@@ -133,20 +128,17 @@ class ContainsDuplicateSolution3Better {
  * So in the worst case (when array is in decreasing order), it would take,
  * Time: O(n^2)
  */
-class ContainsDuplicateSolution4 {
+class ContainsDuplicate_Solution4 {
     public boolean containsDuplicate(int[] nums) {
         for(int i = 1; i < nums.length; i++){
             int key = nums[i];
             int j = i - 1;
-
             while(j >= 0 && nums[j] > key){
                 nums[j + 1] = nums[j];
                 j--;
             }
-
             if(j >= 0 && nums[j] == key)
                 return true;
-
             nums[j + 1] = key;
         }
 

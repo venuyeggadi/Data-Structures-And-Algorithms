@@ -1,5 +1,8 @@
 # Index
 
+### Java collections framework
+* Frequently used constructors and methods of each data structure.
+
 ### Stack
 * Monotonic Stack
 
@@ -57,12 +60,22 @@
 # Backtracking
 * Similar to DFS.
 * [Template for backtracking](algorithms/backtracking/BackTrackingTemplate.java)
-* [Path exists from the root of the tree to a leaf node](algorithms/backtracking/PathFromRootToLeafOfATree.java)
-* [Subsets](algorithms/backtracking/Subsets.java)
-* Problems
-  * [Path Sum](./problemsolving/leetcode/112.PathSum.java)
-  * [Subsets](./problemsolving/leetcode/78.Subsets.java)
-  * [Combination Sum](./problemsolving/leetcode/CombinationSum.java)
+* Tree Maze
+  * [Path exists from the root of the tree to a leaf node](algorithms/backtracking/PathFromRootToLeafOfATree.java)
+  * Problems
+    * [Path Sum](https://leetcode.com/problems/path-sum/) - [Solution](./problemsolving/leetcode/112.PathSum.java)
+    * [Subsets](https://leetcode.com/problems/subsets/) - [Solution](./problemsolving/leetcode/78.Subsets.java)
+    * [Combination Sum](https://leetcode.com/problems/combination-sum/) - [Solution](./problemsolving/leetcode/39.CombinationSum.java)
+* Subsets
+  * [All possible distinct subsets from a list of distinct elements](algorithms/backtracking/SubsetsOutOfDistinctElements.java)
+  * [All possible distinct subsets from a list of distinct elements](algorithms/backtracking/SubsetsOutOfDuplicateElements.java)
+  * Problems
+    * [Subsets](https://leetcode.com/problems/subsets/) - [Solution](./problemsolving/leetcode/78.Subsets.java)
+    * [Subsets II](https://leetcode.com/problems/subsets-ii) - [Solution]()
+* Permutations
+  * [All possible distinct permutations from a list of distinct elements](algorithms/backtracking/PermutationsOutOfDistinctElements.java)
+  * Problems
+    * 
 
 # Graphs
 * Representations
@@ -125,10 +138,10 @@ By definition, all rooted trees have a topological ordering since they do not co
   * [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) - [Solution](./problemsolving/leetcode/70.ClimbingStairs.java)
   * [House Robber](https://leetcode.com/problems/house-robber/) - [Solution](./problemsolving/leetcode/198.HouseRobber.java)
   * Solutions are recursive most of the time.
-    1. Recursive solution, then
+    1. Come up with a Recursive solution, then
     2. Memoize (Top-down), then
     3. Tabulation (Bottom-up), then
-    4. See if space can be optimized (may not always need all previous values, only last few values are enough most of the times)
+    4. See if space can be optimized (may not always need all previous values, only last few values are enough for most of the problems)
 * 2D Dynamic Programming
   * [Unique Paths](https://leetcode.com/problems/unique-paths/) - [Solution](./problemsolving/leetcode/62.UniquePaths.java)
   * [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) - [Solution](./problemsolving/leetcode/63.UniquePathsII.java)

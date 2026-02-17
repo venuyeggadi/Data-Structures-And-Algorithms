@@ -7,6 +7,7 @@
 
 
 ## Arrays and Hashing
+#### Topics: Arrays, Hashing, Counting frequency, Sorting
 * [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - [Solution](./leetcode/217.ContainsDuplicate.java)
 * [Valid Anagram](https://leetcode.com/problems/valid-anagram/) - [Solution](./leetcode/242.ValidAnagram.java)
 * [Two Sum](https://leetcode.com/problems/two-sum/) - [Solution](./leetcode/1.TwoSum.java) ***
@@ -14,7 +15,7 @@
 * [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) - [Solution](./leetcode/347.TopKFrequentElements.java)
 * [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) - [Solution](./leetcode/238.ProductOfArrayExceptSelf.java)
 * [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) - [Solution](./leetcode/36.ValidSudoku.java)
-* [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) - [Solution](./leetcode/271.EnocodeAndDecodeStrings.java)
+* [Encode and Decode Strings](https://neetcode.io/problems/string-encode-and-decode/question) - [Solution](./leetcode/271.EnocodeAndDecodeStrings.java)
 * [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) - [Solution](./leetcode/128.LongestConsecutiveSequence.java)
 * Lean about Hashing if time permits.
 

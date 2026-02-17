@@ -118,8 +118,10 @@ class Subsets_Solution2 {
 class Subsets_Solution3 {
     public List<List<Integer>> subsets(int[] nums) {
         int n = nums.length;
+        int numberOfSubsets = 1 << n; /** or i < Math.pow(2, n) */
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < (1 << n); i++) {  /** or i < Math.pow(2, n) */
+
+        for (int i = 0; i < numberOfSubsets; i++) {
             List<Integer> subset = new ArrayList<>();
             for (int j = 0; j < n; j++) { /** there will be bits sets at most till n positions in the binary representation of the number. It can bb j < 32 as well. But n is < 10 anyway. */
                 if (isSetBit(i, j)) {
@@ -133,7 +135,7 @@ class Subsets_Solution3 {
     }
 
     private boolean isSetBit(int num, int j) {
-        return (num & (1 << j)) == 1;
+        return (num & (1 << j)) != 0;
     }
 }
 

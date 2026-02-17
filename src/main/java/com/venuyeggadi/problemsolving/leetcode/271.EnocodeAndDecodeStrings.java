@@ -17,11 +17,32 @@ package com.venuyeggadi.problemsolving.leetcode;
     One possible encode method is: "we:;say:;:::;yes"
  */
 
+/** https://neetcode.io/problems/string-encode-and-decode/question */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-// Solution 1
+/**
+ * Optimal
+ *
+ * Length-Prefix Encoding - Using string lengths to unambiguously mark boundaries between encoded segments
+ * Encoding: ["abc", "ab", "c"] -> "3#abc2#ab1#a"
+ *
+ * Time:
+ *      encode -> O(m)
+ *      decode -> O(m)
+ * Space:
+ *      encode -> O(m + n)
+ *          m -> (StringBuilder) for all the characters of the strings and n for '#' and length numbers added additionally
+ *      decode -> O(m + n)
+ *          m -> for all the strings
+ *          n -> for array list (n references to strings)
+ *
+ *      where,
+ *          m -> sum of the lengths of all strings
+ *          n -> length of the list of strings
+ */
 class EncodeAndDecodeStrings {
     public String encode(List<String> strs) {
         StringBuilder encodedString = new StringBuilder();
@@ -33,13 +54,14 @@ class EncodeAndDecodeStrings {
 
     public List<String> decode(String str) {
         List<String> result = new ArrayList<>();
-
-        for (int i = 0; i < str.length(); ) {
-            int poundIndex = str.indexOf('#', i);
-            int wordLength = Integer.parseInt(str.substring(i, poundIndex));
-            int endIndex = poundIndex + wordLength;
-            result.add(str.substring(poundIndex + 1, endIndex + 1));
-            i = endIndex + 1;
+        int index = 0;
+        while (index < str.length()) {
+            int indexOfPound = str.indexOf('#', index);
+            int stringLength = Integer.parseInt(str.substring(index, indexOfPound));
+            int startIndex = indexOfPound + 1;
+            int endIndex = startIndex + stringLength;
+            result.add(str.substring(startIndex, endIndex));
+            index = endIndex;
         }
 
         return result;
@@ -62,3 +84,45 @@ class EncodeAndDecodeStrings {
         return list;
     }
 }
+
+/**
+ * Encoding: ["abc", "ab", "c"] -> "3,2,1#abcaba"
+ */
+class EncodeAndDecodeStrings_Way2 {
+
+    public String encode(List<String> strs) {
+        if (strs.isEmpty())
+            return "";
+
+        StringBuilder sb = new StringBuilder();
+        for (String str : strs) {
+            sb.append(str.length()).append(',');
+        }
+        sb.append('#');
+        for (String str : strs) {
+            sb.append(str);
+        }
+
+        return sb.toString();
+    }
+
+    public List<String> decode(String str) {
+        if (str.isEmpty())
+            return new ArrayList<>();
+
+        int indexOfPound = str.indexOf('#');
+        int[] lengths = Arrays.stream(str.substring(0, indexOfPound).split(",")).mapToInt(Integer::parseInt).toArray();
+
+        List<String> result = new ArrayList<>();
+
+        int startIndex = indexOfPound + 1;
+        for (int len : lengths) {
+            int endIndex = startIndex + len;
+            result.add(str.substring(startIndex, endIndex));
+            startIndex = endIndex;
+        }
+
+        return result;
+    }
+}
+

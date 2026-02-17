@@ -25,13 +25,24 @@ package com.venuyeggadi.problemsolving.leetcode;
  */
 
 
-//Solution 1
-/*
-Using two separate arrays for prefix and suffix products.
-Time complexity: O(n + n + n) = O(n)
-Space complexity: O(n + n) = O(n)
+// Solution 0
+/**
+ * Bruteforce
+ * For each element, compute the product of the rest of the elements.
+ *
+ * Time: O(n^2)
+ * Space: O(1)
  */
-class ProductOfArrayExceptSelfSolution1 {
+
+
+//Solution 1
+/**
+ * Using two separate arrays for prefix and suffix products.
+ *
+ * Time complexity: O(n + n + n) = O(n)
+ * Space complexity: O(n + n) = O(n)
+ */
+class ProductOfArrayExceptSelf_Solution1 {
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] prefixProduct = new int[length];
@@ -55,13 +66,8 @@ class ProductOfArrayExceptSelfSolution1 {
     }
 }
 
-//Solution 2
-/*
-Computing prefix and suffix in different way.
-Time complexity: O(n + n + n) = O(n)
-Space complexity: O(n + n) = O(n)
- */
-class ProductOfArrayExceptSelfSolution2 {
+// Computing prefix and suffix in different way.
+class ProductOfArrayExceptSelf_Solution1_Way2 {
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] result = new int[length];
@@ -83,25 +89,29 @@ class ProductOfArrayExceptSelfSolution2 {
     }
 }
 
-//Solution 3
-/*
-Without using extra space. Note that output array does not count as extra space.
-Time complexity: O(n + n + n) = O(n)
-Space complexity: O(1)
+//Solution 2
+/**
+ * Without using extra space. Note that output array does not count as extra space.
+ *
+ * Initially result contains values such that result[i] = product of numbers till nums[i - 1].
+ * In the second pass in reverse, it contains the actual result.
+ *
+ * Time complexity: O(n + n + n) = O(n)
+ * Space complexity: O(1)
  */
-class ProductOfArrayExceptSelfSolution3 {
+class ProductOfArrayExceptSelf_Solution2 {
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] result = new int[length];
 
         result[0] = 1;
         for (int i = 1; i < length; i++)
-            result[i] = result[i-1] * nums[i - 1];
+            result[i] = result[i - 1] * nums[i - 1];
 
         int suffix = 1;
-        for (int i = length-2; i >= 0; i--) {
-            suffix *= nums[i+1];
-            result[i] *= suffix;
+        for (int i = nums.length - 1; i >= 0; --i) {
+            result[i] = result[i] * suffix;
+            suffix *= nums[i];
         }
 
         return result;
@@ -109,17 +119,18 @@ class ProductOfArrayExceptSelfSolution3 {
 }
 
 // For a consistent prefix, suffix calculation
-class ProductOfArrayExceptSelfSolution4 {
+class ProductOfArrayExceptSelf_Solution3 {
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         int[] result = new int[length];
-        int prefix = 1, suffix = 1;
 
+        int prefix = 1;
         for (int i = 0; i < length; i++) {
             result[i] = prefix;
             prefix *= nums[i];
         }
 
+        int suffix = 1;
         for (int i = length - 1; i >= 0; i--) {
             result[i] *= suffix;
             suffix *= nums[i];

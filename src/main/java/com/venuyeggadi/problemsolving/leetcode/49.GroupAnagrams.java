@@ -29,14 +29,14 @@ import java.util.*;
 // Solution 1
 /**
  * Bruteforce
- * Time complexity: O(n *n *k) => (n^2 * k) worst case when no strings are anagrams of each other.
+ * Time complexity: O(n * n * k) => (n^2 * k) worst case when no strings are anagrams of each other.
  *      where n = |strs| and k = ∣strs[i]∣ = average length of a string
  *      and in the best case O(k.n) when every anagram belongs to same group.
  * Space complexity: O(n) for the boolean array.
  *
  * Note: we are not considering the space used by result list.
  */
-class GroupAnagramsSolution1 {
+class GroupAnagrams_Solution1 {
     public List<List<String>> groupAnagrams(String[] strs) {
         int length = strs.length;
         List<List<String>> resultList = new ArrayList<>();
@@ -88,19 +88,20 @@ class GroupAnagramsSolution1 {
  * Space complexity: O(n.k)
  *      for the charArray created at each iteration.
  */
-class GroupAnagramsSolution2 {
+class GroupAnagrams_Solution2 {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
 
         for (String str : strs) {
             char[] charArray = str.toCharArray();
             Arrays.sort(charArray);
-            String key = String.valueOf(charArray);
+            String key = String.valueOf(charArray); // OR String k = new String(charArray);
             if (!map.containsKey(key))
                 map.put(key, new ArrayList<String>());
             map.get(key).add(str);
         }
-        return new ArrayList(map.values());
+
+        return new ArrayList<>(map.values());
     }
 }
 
@@ -115,7 +116,7 @@ class GroupAnagramsSolution2 {
  * Here we are using string as a key because arrays in java can't be keys of a map.
  * Because they do not override the hashCode() method. They use hashCode() method of Object class.
  */
-class GroupAnagramsSolution3 {
+class GroupAnagrams_Solution3 {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
 

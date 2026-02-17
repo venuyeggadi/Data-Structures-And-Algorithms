@@ -26,12 +26,15 @@ import java.util.*;
 
 
 // Solution 1
-/*
-Time complexity: O(n + n + nlog(n)) = O(nlog(n))
-Space complexity: O(n + n + n) = O(n)
-Note: Mergesort - O(nlog(n)), O(n)
+/**
+ * Sorting
+ *
+ * Time complexity: O(n + n + nlog(n)) = O(nlog(n))
+ * Space complexity: O(n + n + n) = O(n)
+ *
+ * Note: Mergesort - O(nlog(n)), O(n)
  */
-class TopKFrequentElementsSolution1 {
+class TopKFrequentElements_Solution1 {
     public int[] topKFrequent(int[] nums, int k) {
         if (k == nums.length) {
             return nums;
@@ -53,14 +56,41 @@ class TopKFrequentElementsSolution1 {
     }
 }
 
+class TopKFrequentElements_Solution1_Way2 {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums)
+            map.put(num, map.getOrDefault(num, 0) + 1);
+
+        int[][] freqToNum = new int[map.size()][2];
+
+        int index = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            freqToNum[index][0] = entry.getValue();
+            freqToNum[index][1] = entry.getKey();
+            ++index;
+        }
+
+        Arrays.sort(freqToNum, Comparator.comparingInt(a -> a[0]));
+
+        int[] result = new int[k];
+        index = 0;
+        for (int i = freqToNum.length - k; i < freqToNum.length; ++i) {
+            result[index++] = freqToNum[i][1];
+        }
+
+        return result;
+    }
+}
+
 
 // Solution 2
-/*
-Time complexity: O(nlog(k))
-Space complexity: O(n + k)
+/**
+ * Priority Queue
+ * Time complexity: O(nlog(k))
+ * Space complexity: O(n + k) => O(n)
  */
-
-class TopKFrequentElementsSolution2 {
+class TopKFrequentElements_Solution2 {
     public int[] topKFrequent(int[] nums, int k) {
         if (k == nums.length) {
             return nums;
@@ -71,7 +101,9 @@ class TopKFrequentElementsSolution2 {
             numToCount.put(number, numToCount.getOrDefault(number, 0) + 1);
         }
 
-        Queue<Integer> minHeap = new PriorityQueue<>((a, b) -> numToCount.get(a) - numToCount.get(b));
+        Queue<Integer> minHeap = new PriorityQueue<>(Comparator.comparingInt(numToCount::get));
+        // OR Queue<Integer> minHeap = new PriorityQueue<>((a, b) -> numToCount.get(a) - numToCount.get(b));
+
         for (int key : numToCount.keySet()) {
             minHeap.offer(key);
             if (minHeap.size() > k)
@@ -86,13 +118,37 @@ class TopKFrequentElementsSolution2 {
     }
 }
 
+class TopKFrequentElements_Solution2_Way2 {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> numToFreq = new HashMap<>();
+        for (int num : nums)
+            numToFreq.put(num, numToFreq.getOrDefault(num, 0) + 1);
+
+        Queue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        for (Map.Entry<Integer, Integer> entry : numToFreq.entrySet()) {
+            pq.offer(new int[]{ entry.getValue(), entry.getKey() });
+            if (pq.size() > k)
+                pq.poll();
+        }
+
+        int[] result = new int[k];
+        int i = 0;
+        for (int[] pair : pq)
+            result[i++] = pair[1];
+
+        return result;
+    }
+}
+
 
 // Solution 3
-/*
-Time complexity: O(n + n + n + n) = O(n)
-Space complexity: O(n + n + n) = O(n)
+/**
+ * Bucket Sort
+ *
+ * Time complexity: O(n + n + n + n) = O(n)
+ * Space complexity: O(n + n + n) = O(n)
  */
-class TopKFrequentElementsSolution3 {
+class TopKFrequentElements_Solution3 {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums)
@@ -113,6 +169,7 @@ class TopKFrequentElementsSolution3 {
             }
         }
 
+        //int[] result = resultList.stream().mapToInt(a -> a).toArray();
         int[] result = new int[k];
         for (int i = 0; i < k; i++)
             result[i] = resultList.get(i);
@@ -122,7 +179,7 @@ class TopKFrequentElementsSolution3 {
 }
 
 
-class TopKFrequentElementsSolution4 {
+class TopKFrequentElements_Solution4 {
     private int[] unique;
     private Map<Integer, Integer> count;
 

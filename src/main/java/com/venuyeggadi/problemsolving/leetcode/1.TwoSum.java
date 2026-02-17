@@ -29,11 +29,16 @@ package com.venuyeggadi.problemsolving.leetcode;
  */
 
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-// Solution 1
-// Bruteforce Time : O(n^2) , Space : O(1)
+/** Solution 1
+ * Bruteforce
+ * Time : O(n^2)
+ * Space : O(1)
+ * */
 class TwoSum_Solution1 {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
@@ -53,7 +58,7 @@ class TwoSum_Solution1 {
 }
 
 //Same Bruteforce with optimised return statement
-class TwoSum_Solution1WithBetterReturnStatement {
+class TwoSum_Solution1_WithBetterReturnStatement {
     public int[] twoSum(int[] nums, int target) {
         boolean found = false;
         for (int i = 0; i < nums.length - 1; i++) {
@@ -68,25 +73,62 @@ class TwoSum_Solution1WithBetterReturnStatement {
 }
 
 /**
- * Using HashMap(Dictionary) - Two Pass
+ * Solution 2
+ * Sorting
+ * Intuition
+ *     We can sort the array and use two pointers to find the two numbers that sum up to the target.
+ *     This is more efficient than the brute force approach. This approach is similar to the one used in Two Sum II.
+ *
+ * Time : O(n log n)
+ * Space : O(n)
+ *      n -> for num to index mapping array
+ *      log n OR n-> space for sorting (log n for quicksort, n for mergesort)
+ */
+class TwoSum_Solution2 {
+    public int[] twoSum(int[] nums, int target) {
+        int[][] numIndex = new int[nums.length][2];
+        for (int i = 0; i < nums.length; ++i) {
+            numIndex[i][0] = nums[i];
+            numIndex[i][1] = i;
+        }
+
+        Arrays.sort(numIndex, Comparator.comparingInt(a -> a[0])); // OR Arrays.sort(numIndex, (a, b) -> a[0] - b[0]);
+
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int sum = numIndex[left][0] + numIndex[right][0];
+            if (sum == target)
+                return new int[]{numIndex[left][1], numIndex[right][1]};
+            else if (sum < target)
+                ++left;
+            else
+                --right;
+        }
+
+        return null;
+    }
+}
+
+/**
+ * Using HashMap (Dictionary) - Two Pass
  * We can reduce the time complexity to 'n' by making lookup table for the elements instead of linearly searching for the
  * compliment element that is needed.
  * Pre-compute a hash map of number and their indices. Scan the array checking for compliment in the hashmap.
  *
  * Time : O(n), Space : O(n)
  */
-class TwoSum_Solution2 {
+class TwoSum_Solution3 {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> indices = new HashMap<>();  // val -> index
+        Map<Integer, Integer> numToIndex = new HashMap<>();  // num -> index
 
         for (int i = 0; i < nums.length; i++) {
-            indices.put(nums[i], i);
+            numToIndex.put(nums[i], i);
         }
 
         for (int i = 0; i < nums.length; i++) {
             int diff = target - nums[i];
-            if (indices.containsKey(diff) && indices.get(diff) != i) {
-                return new int[]{i, indices.get(diff)};
+            if (numToIndex.containsKey(diff) && numToIndex.get(diff) != i) {
+                return new int[]{i, numToIndex.get(diff)};
             }
         }
 
@@ -95,7 +137,7 @@ class TwoSum_Solution2 {
 }
 
 /**
- * Using HashMap(Dictionary) - One pass
+ * Using HashMap (Dictionary) - One pass
  * Building lookup table on the fly. Scan each element in the array by checking for complement in previously added elements to the hashmap.
  *
  * Time complexity : O(n).
@@ -103,12 +145,12 @@ class TwoSum_Solution2 {
  * Space complexity : O(n).
  *      The extra space required depends on the number of items stored in the hash table, which stores at most n elements.
  */
-class TwoSum_Solution3 {
+class TwoSum_Solution4 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        int complement;
+
         for (int index = 0; index < nums.length; index++) {
-            complement = target - nums[index];
+            int complement = target - nums[index];
             if (map.containsKey(complement))
                 return new int[]{map.get(complement), index};
             //else (optional);
