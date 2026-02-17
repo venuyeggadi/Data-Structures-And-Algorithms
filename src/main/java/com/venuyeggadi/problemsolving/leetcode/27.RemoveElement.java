@@ -44,14 +44,17 @@ package com.venuyeggadi.problemsolving.leetcode;/* Given an integer array nums a
    * 0 <= val <= 100
 */
 
-//#1 Bruteforce
-//O(n^2), O(1)
-class RemoveElementSolution1 {
+/**
+ * Bruteforce
+ * Time: O(n^2)
+ * Space: O(1)
+ */
+class RemoveElement_Solution1 {
     public int removeElement(int[] nums, int val) {
         int pointer = 0;
-        for(int i = 0; i < nums.length; i++) {
-            if(nums[pointer] == val)
-                leftShiftFrom(nums, pointer+1);
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[pointer] == val)
+                leftShiftFrom(nums, pointer + 1);
             else
                 pointer++;
         }
@@ -60,15 +63,18 @@ class RemoveElementSolution1 {
     }
     
     static void leftShiftFrom(int[] nums, int index) {
-        for(int i = index; i < nums.length; i++)
-            nums[i-1] = nums[i];
+        for (int i = index; i < nums.length; i++)
+            nums[i - 1] = nums[i];
     }
 }
 
 
-//#2 Two pointer
-//O(n), O(1)
-class RemoveElementSolution2 {
+/**
+ * Two pointer
+ * Time: O(n)
+ * Space: O(1)
+ */
+class RemoveElement_Solution2 {
     public int removeElement(int[] nums, int val) {
         int pointer = 0;
         for(int num : nums) {
@@ -80,27 +86,26 @@ class RemoveElementSolution2 {
     }
 }
 
-
-//#2 Two pointers - when elements to remove are rare.
-/* Intuition
-   Now consider cases where the array contains few elements to remove. For example,
-   nums = [1,2,3,5,4], val = 4. The previous algorithm will do unnecessary copy
-   operation of the first four elements. Another example is nums = [4,1,2,3,5], val = 4.
-   It seems unnecessary to move elements [1,2,3,5] one step left as the problem
-   description mentions that the order of elements could be changed.
-
-   Algorithm
-   When we encounter nums[i] = val, we can swap the current element out with the
-   last element and dispose the last one. This essentially reduces the array's size by 1.
-
-   Note that the last element that was swapped in could be the value you want to remove itself.
-   But don't worry, in the next iteration we will still check this element.
-*/
-//O(n), O(1)
-class RemoveElementSolution3 {
+/**
+ * Two pointers - when elements to remove are rare.
+ *
+ * Intuition
+ * Now consider cases where the array contains few elements to remove. For example, nums = [1,2,3,5,4], val = 4.
+ * The previous algorithm will do unnecessary copy operation of the first four elements. Another example is nums = [4,1,2,3,5], val = 4.
+ * It seems unnecessary to move elements [1,2,3,5] one step left as the problem description mentions that the order of elements could be changed.
+ *
+ * Algorithm
+ * When we encounter nums[i] = val, we can swap the current element out with the last element and dispose the last one.
+ * This essentially reduces the array's size by 1. Note that the last element that was swapped in could be the value you want to remove itself.
+ * But don't worry, in the next iteration we will still check this element.
+ *
+ * Time: O(n)
+ * Space: O(1)
+ */
+class RemoveElement_Solution3 {
     public int removeElement(int[] nums, int val) {
-        int startIndex = 0;
-        int endIndex = nums.length-1;
+        int startIndex = 0, endIndex = nums.length-1;
+
         while(startIndex <= endIndex) {
             if(nums[startIndex] == val)
                 nums[startIndex] = nums[endIndex--];

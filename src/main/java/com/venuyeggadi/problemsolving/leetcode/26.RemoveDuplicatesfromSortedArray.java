@@ -45,9 +45,11 @@ package com.venuyeggadi.problemsolving.leetcode;
    * nums is sorted in non-decreasing order.
 */
 
-//#1 Two Pointer
-//O(n), O(1)
-class RemoveDuplicatesFromSortedArraySolution1 {
+/**  Two Pointer
+ * Time: O(n)
+ * Space: O(1)
+ */
+class RemoveDuplicatesFromSortedArray_Solution1 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
@@ -62,36 +64,21 @@ class RemoveDuplicatesFromSortedArraySolution1 {
         return uniqueIndex;
     }
 }
+
 //Same as above except comparison
 //O(n), O(1)
-class RemoveDuplicatesFromSortedArraySolution2 {
-    public int removeDuplicates(int[] nums) {
-        if(nums.length == 0)
-            return 0;
-       
-        int uniqueIndex = 1;
-        for(int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
-            if(nums[searchIndex] != nums[uniqueIndex-1])
-                nums[uniqueIndex++] = nums[searchIndex];
-        }
-        
-        return uniqueIndex;
-    }
-}
-//Same as above except comparison
-//O(n), O(1)
-class RemoveDuplicatesFromSortedArraySolution3 {
+class RemoveDuplicatesFromSortedArray_Solution1_Way2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
         
-        int pointer = 0;
+        int index = 0;
         for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[pointer]) {
-                nums[++pointer] = nums[i];
+            if(nums[i] != nums[index]) {
+                nums[++index] = nums[i];
             }
         }
         
-        return pointer+1;
+        return index + 1;
     }
 }
