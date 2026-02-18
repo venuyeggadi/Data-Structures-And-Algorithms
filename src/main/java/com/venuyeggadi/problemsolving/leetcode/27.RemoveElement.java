@@ -1,4 +1,5 @@
-package com.venuyeggadi.problemsolving.leetcode;/* Given an integer array nums and an integer val, remove all occurrences of val
+package com.venuyeggadi.problemsolving.leetcode;
+/* Given an integer array nums and an integer val, remove all occurrences of val
    in nums in-place. The relative order of the elements may be changed.
    Since it is impossible to change the length of the array in some languages, you
    must instead have the result be placed in the first part of the array nums.
@@ -44,6 +45,9 @@ package com.venuyeggadi.problemsolving.leetcode;/* Given an integer array nums a
    * 0 <= val <= 100
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Bruteforce
  * Time: O(n^2)
@@ -68,13 +72,33 @@ class RemoveElement_Solution1 {
     }
 }
 
+/**
+ * Form a list of numbers excluding the value and copy them back to the array.
+ *
+ * Time: O(n)
+ * Space: O(n)
+ */
+class RemoveElement_Solution2 {
+    public int removeElement(int[] nums, int val) {
+        List<Integer> list = new ArrayList<>();
+        for (int num : nums) {
+            if (num != val) {
+                list.add(num);
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            nums[i] = list.get(i);
+        }
+        return list.size();
+    }
+}
 
 /**
  * Two pointer
  * Time: O(n)
  * Space: O(1)
  */
-class RemoveElement_Solution2 {
+class RemoveElement_Solution3 {
     public int removeElement(int[] nums, int val) {
         int pointer = 0;
         for(int num : nums) {
@@ -102,7 +126,7 @@ class RemoveElement_Solution2 {
  * Time: O(n)
  * Space: O(1)
  */
-class RemoveElement_Solution3 {
+class RemoveElement_Solution4 {
     public int removeElement(int[] nums, int val) {
         int startIndex = 0, endIndex = nums.length-1;
 

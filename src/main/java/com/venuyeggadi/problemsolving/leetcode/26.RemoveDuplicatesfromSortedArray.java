@@ -45,11 +45,38 @@ package com.venuyeggadi.problemsolving.leetcode;
    * nums is sorted in non-decreasing order.
 */
 
-/**  Two Pointer
+import java.util.TreeSet;
+
+/**
+ * Bruteforce
+ * Determine unique elements using set and then sort them again.
+ * OR
+ * Use a sorted set (TreeSet in java)
+ *
+ * O(n log n)
+ * O(n)
+ */
+class RemoveDuplicatesFromSortedArray_Solution1 {
+    public int removeDuplicates(int[] nums) {
+        TreeSet<Integer> sortedSet = new TreeSet<>();
+
+        for (int num : nums)
+            sortedSet.add(num);
+
+        int index = 0;
+        for (int num : sortedSet)
+            nums[index++] = num;
+
+        return index;
+    }
+}
+
+/**
+ * Two Pointer
  * Time: O(n)
  * Space: O(1)
  */
-class RemoveDuplicatesFromSortedArray_Solution1 {
+class RemoveDuplicatesFromSortedArray_Solution2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
@@ -65,9 +92,9 @@ class RemoveDuplicatesFromSortedArray_Solution1 {
     }
 }
 
-//Same as above except comparison
-//O(n), O(1)
-class RemoveDuplicatesFromSortedArray_Solution1_Way2 {
+// Same as above except comparison
+// O(n), O(1)
+class RemoveDuplicatesFromSortedArray_Solution2_Way2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
