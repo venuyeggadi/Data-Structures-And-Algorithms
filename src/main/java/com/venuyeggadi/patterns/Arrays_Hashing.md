@@ -8,12 +8,28 @@
 | Insert Middle       | O(n)       |
 | Remove Middle       | O(n)       |
 
+* In-place changes, Two pointers
 * Problems
   * [Remove Duplicates from Sorted Array](../problemsolving/leetcode/26.RemoveDuplicatesfromSortedArray.java)
   * [Remove Element](../problemsolving/leetcode/27.RemoveElement.java)
   * [Shuffle The Array](../problemsolving/leetcode/1470.ShuffleTheArray.java)
 
 ### Dynamic Arrays
+| Operation           | Big-O Time     |
+|---------------------|----------------|
+| r/w i-th element    | O(1)           |
+| Insert / Remove End | Amortized O(1) |
+| Insert Middle       | O(n)           |
+| Remove Middle       | O(n)           |
+* ArrayList in java
+  * get(index) to get, set(index, element) to set element at index
+  * add(length, E element) to add element at end, remove(length - 1) to remove last element
+  * add(index, E element) to insert in at index
+  * remove(index) to remove element at index
+* [Array List](../datastructures/dynamicarray/ArrayList.java)
+* Problems
+  * [Concatenation of Array](../problemsolving/leetcode/1929.ConcatenationOfArray.java)
+
 ### Kadane's Algorithm
 ### Sliding Window Fixed
 ### Sliding Window Variable

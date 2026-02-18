@@ -1,28 +1,41 @@
 # Graphs
-* Representations
-    * Matrix
-    * Adjacency Matrix
-    * Adjacency list
-* [Adjacency list from Edge list](./algorithms/graphs/AdjacencyListFromEdges.java)
 
-### DFS
+## Representations
+  * Matrix
+  * Adjacency Matrix
+  * Adjacency list
+  * [Adjacency list from Edge list](./algorithms/graphs/AdjacencyListFromEdges.java)
+
+## DFS
 * [DFS - Adjacency List](./algorithms/graphs/dfs/DFS_AdjacencyList.java)
 * [DFS - Adjacency Matrix](./algorithms/graphs/dfs/DFS_AdjacencyMatrix.java)
 * [Count Paths - Matrix](./algorithms/graphs/CountPaths_Matrix_DFS.java)
 * [Count Paths - Adjacency List](./algorithms/graphs/CountPaths_AdjacencyList_DFS.java)
 
-### BFS
+## BFS
 * [BFS - Adjacency List](./algorithms/graphs/bfs/BFS_AdjacencyList.java)
 * [BFS - Adjacency Matrix](./algorithms/graphs/bfs/BFS_AdjacencyMatrix.java)
 * [Shortest Path - Matrix](./algorithms/graphs/ShortestPath_Matrix_BFS.java)
 * [Shortest Path - Adjacency List](./algorithms/graphs/ShortestPath_AdjacencyList_BFS.java)
 
-### Union Find
-### When to use Union find over DFS/BFS?
+
+
+## Union Find
+#### When to use Union find over DFS/BFS?
 In the case of a dynamic graph, i.e. the situation where we could add additional edges throughout the runtime of the program,
 the UnionFind approach is better. This is because the additional edge would simply incur one additional union O(α(n)) operation
-versus the BFS/DFS approach which would require the whole procedure to be recalculated in O(n^2
-) time.
+versus the BFS/DFS approach which would require the whole procedure to be recalculated in O(n^2) time.
+
+
+## Dijkstra's shortest path algorithm
+
+
+## Minimum Spanning Trees
+
+### Prim's 
+
+### Kruskal's
+
 
 
 ### Directed Acyclic Graphs (DAG)

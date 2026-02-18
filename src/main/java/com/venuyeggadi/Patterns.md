@@ -12,17 +12,56 @@
 * Two Pointers
 * Prefix Sum
 
+### [Linked Lists](./patterns/LinkedLists.md)
+* Singly Linked List
+* Doubly Linked List
+* Fast and Slow pointers
+
+### [Hashing](./patterns/Hashing.md)
+* Hash Usage
+* Hash Implementation
+
+### [Queue](./patterns/Queue.md)
+
 ### Stack
 * Monotonic Stack
 
-### Binary Search ***
+### [Binary Search](./patterns/BinarySerach.md) ***
+* Search Array
+* Search Range
 
 ### [Recursion](./patterns/Recursion.md)
 
-### [Backtracking](./patterns/Backtracking.md)
+### [Sorting](./patterns/Sorting.md)
+* Insertion sort
+* Merge sort
+* Quick sort
+* Bucket Sort
 
 ### [Trees](./patterns/Trees.md)
+* Binary Trees
+* Forming trees from traversals (pre-order, post-order, in-order)
+* Binary Search Trees
+* BST Insert and Remove
+* Depth-First Search
+* Breadth-First Search
+* BST Sets and Maps
+* Trie
+* Union-Find
+* Segment Tree
+* Iterative DFS
 
+### [Heap / Priority Queue](./patterns/Heap_PriorityQueue.md)
+* Heap Properties
+* Push and Pop
+* Heapify
+* Two Heaps
+
+### [Backtracking](./patterns/Backtracking.md)
+* TreeMaze
+* Subsets
+* Combinations
+* Permutations
 
 ### [Graphs](./patterns/Graphs.md)
 * DFS ***
@@ -55,3 +94,5 @@
 
 
 ### [Math](./patterns/Math.md)
+
+### [Bit Manipulation](./patterns/BitManipulation.md)

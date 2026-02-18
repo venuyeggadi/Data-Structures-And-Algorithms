@@ -40,7 +40,7 @@ class ConcatenationOfArraySolution1 {
     }
 }
 
-class ConcatenationOfArray_Solution1Way2 {
+class ConcatenationOfArray_Solution1_Way2 {
     public int[] getConcatenation(int[] nums) {
         int[] result = new int[2 * nums.length];
 
