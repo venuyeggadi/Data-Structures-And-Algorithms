@@ -1,62 +1,82 @@
 package com.venuyeggadi.algorithms.sorting;
 
+import java.util.Arrays;
+
+
+/**
+ * Time: O(n log n)
+ *      T(n) = 2 T(n/2) + n
+ *      T(n) = 2^logn * T(1) + n log n
+ *      T(n) = n + n log n
+ * Space: O(n)
+ */
 class MergeSort
 {
-    public static void sort(int[] a) {
-
-        mergeSort(a, 0, a.length - 1);
+    public static void main(String[] args) {
+        int[] arr = new int[]{1, 2, 4, 6, 3, 6, 8, 9, 6, -4, -2, 5};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    private static void mergeSort(int[] a, int start, int end) {
+    public static void sort(int[] nums) {
+        mergeSort(nums, 0, nums.length - 1);
+    }
+
+    private static void mergeSort(int[] nums, int start, int end) {
         if(end <= start)
             return;
 
-        int mid = (start + end) / 2;
-        mergeSort(a, start, mid);
-        mergeSort(a,mid + 1, end);
+        int mid = start + (end - start) / 2;
+        mergeSort(nums, start, mid);
+        mergeSort(nums,mid + 1, end);
 
-        merge(a, start, mid, end);
+        merge(nums, start, mid, end);
+        // merge2(nums, start, mid, end);
     }
-    
-    private static void merge(int arr[], int start, int mid, int end) {
-        int[] leftArray = new int[mid - start + 1];
-        int[] rightArray = new int[end - mid]; // end - (mid + 1) + 1
 
-        for (int i = 0; i < leftArray.length; ++i)
-            leftArray[i] = arr[start + i];
-        for (int i = 0; i < rightArray.length; ++i)
-            rightArray[i] = arr[mid + 1 + i];
- 
-        int leftArrayIndex = 0, rightArrayIndex = 0, resultArrayIndex = start;
+    private static void merge(int[] nums, int start, int mid, int end) {
+        int n = end - start + 1;
+        int[] merged = new int[n];
 
-        // Merge: way 1
-        while (leftArrayIndex <  leftArray.length && rightArrayIndex < rightArray.length)
-        {
-            if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex])
-                arr[resultArrayIndex++] = leftArray[leftArrayIndex++];
+        int i = start, j = mid + 1;
+        for (int index = 0; index < n; ++index) {
+            if (i > mid)
+                merged[index] = nums[j++];
+            else if (j > end)
+                merged[index] = nums[i++];
+            else if (nums[i] <= nums[j])
+                merged[index] = nums[i++];
             else
-                arr[resultArrayIndex++] = rightArray[rightArrayIndex++];
+                merged[index] = nums[j++];
         }
 
-        while (leftArrayIndex < leftArray.length)
-            arr[resultArrayIndex++] = leftArray[leftArrayIndex++];
+        int index = start;
+        for (int num : merged)
+            nums[index++] = num;
+    }
 
-        while (rightArrayIndex < rightArray.length)
-            arr[resultArrayIndex++] = rightArray[rightArrayIndex++];
+    // Another way to merge
+    private static void merge2(int[] nums, int start, int mid, int end) {
+        int n = end - start + 1;
+        int[] merged = new int[n];
 
-        // Merge: way 2
-//        while (resultArrayIndex <= end)
-//        {
-//            if (leftArrayIndex == leftArray.length)
-//                arr[resultArrayIndex] = rightArray[rightArrayIndex++];
-//            else if (rightArrayIndex == rightArray.length)
-//                arr[resultArrayIndex] = leftArray[leftArrayIndex++];
-//            else if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex])
-//                arr[resultArrayIndex] = leftArray[leftArrayIndex++];
-//            else
-//                arr[resultArrayIndex] = rightArray[rightArrayIndex++];
-//
-//            resultArrayIndex++;
-//        }
+        int i = start, j = mid + 1;
+        int index = 0;
+        while (i <= mid && j <= end) {
+            if (nums[i] <= nums[j])
+                merged[index++] = nums[i++];
+            else
+                merged[index++] = nums[j++];
+        }
+
+        while (i <= mid)
+            merged[index++] = nums[i++];
+
+        while (j <= end)
+            merged[index++] = nums[j++];
+
+        index = start;
+        for (int num : merged)
+            nums[index++] = num;
     }
 }

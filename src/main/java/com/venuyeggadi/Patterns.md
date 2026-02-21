@@ -2,6 +2,11 @@
 
 ### Java collections framework
 * Frequently used constructors and methods of each data structure.
+### Java Streams API
+
+### Time & Complexity Analysis
+* Master Theorem
+* Ref books: Jeff Erickson, CLRS
 
 ### [Arrays & Hashing](./patterns/Arrays_Hashing.md)
 * Static Arrays
@@ -33,10 +38,15 @@
 ### [Recursion](./patterns/Recursion.md)
 
 ### [Sorting](./patterns/Sorting.md)
+* Selection sort
 * Insertion sort
+* Bubble sort
 * Merge sort
 * Quick sort
-* Bucket Sort
+* Quick Select ***
+* Bucket sort
+* Radix sort
+* Heap sort
 
 ### [Trees](./patterns/Trees.md)
 * Binary Trees
