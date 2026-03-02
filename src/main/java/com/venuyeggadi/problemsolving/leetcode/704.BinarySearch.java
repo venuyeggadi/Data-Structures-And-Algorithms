@@ -24,12 +24,13 @@ package com.venuyeggadi.problemsolving.leetcode;
 */
 
 
-//#1
-/* Complexity Analysis
-Time complexity : O(log(N)).
-Space complexity: O(1)
+import java.util.Arrays;
+
+/**
+ * Time : O(log n)
+ * Space: O(1)
 */
-class BinarySearchSolution1 {
+class BinarySearch_Solution1 {
     public int search(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
@@ -44,6 +45,23 @@ class BinarySearchSolution1 {
             else
                 start = mid + 1;
         }
+
+        return -1;
+    }
+}
+
+/**
+ * Built-in
+ *
+ * Time : O(log n)
+ * Space: O(1)
+ */
+class BinarySearch_Solution2 {
+    public int search(int[] nums, int target) {
+        int index = Arrays.binarySearch(nums, target);
+
+        if (index >= 0)
+            return index;
 
         return -1;
     }

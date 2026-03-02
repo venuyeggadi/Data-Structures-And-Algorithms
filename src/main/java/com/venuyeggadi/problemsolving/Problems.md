@@ -25,6 +25,7 @@
 * [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/15.ThreeSum.java)
 * [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/11.ContainerWithMostWater.java)
 * [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/42.TrappingRainWater.java) ***
+
 ## Sliding Window
 * [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java) ***
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution](./leetcode/3.LongestSubstringWithoutRepeatingCharacters.java)
@@ -47,11 +48,10 @@
 * [Reverse Nodes in K-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) - [Solution]
 
 ## Stack
-* [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) - [Solution](./leetcode/20.ValidParenthesis.java)
+* [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) - [Solution](./leetcode/20.ValidParentheses.java)
 * [Min Stack](https://leetcode.com/problems/min-stack/) - [Solution](./leetcode/155.MinStack.java)
-* [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) - [Solution]
-* [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - [Solution]
-* [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - [Solution]
+* [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) - [Solution](./leetcode/150.EvaluateReversePolishNotation.java)
+* [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) - [Solution](./leetcode/739.DailyTemperatures.java)
 * [Car Fleet](https://leetcode.com/problems/car-fleet/) - [Solution]
 * [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) - [Solution]
 
@@ -83,6 +83,7 @@
 * [Permutations](https://leetcode.com/problems/permutations/) - [Solution]
 * [Subsets II](https://leetcode.com/problems/subsets-ii/) - [Solution]
 * [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/) - [Solution]
+* [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) - [Solution]
 * [Word Search](https://leetcode.com/problems/word-search/) - [Solution]
 * [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) - [Solution]
 * [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) - [Solution]

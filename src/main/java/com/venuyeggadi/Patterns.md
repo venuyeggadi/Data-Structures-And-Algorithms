@@ -5,7 +5,8 @@
 ### Java Streams API
 
 ### Time & Complexity Analysis
-* Master Theorem
+* Master Theorem 
+  * https://leetcode.com/explore/learn/card/recursion-ii/470/divide-and-conquer/2871/
 * Ref books: Jeff Erickson, CLRS
 
 ### [Arrays & Hashing](./patterns/Arrays_Hashing.md)
@@ -27,8 +28,12 @@
 * Hash Implementation
 
 ### [Queue](./patterns/Queue.md)
+* Queue
+* Deque
+* Monotonic Deque
 
-### Stack
+
+### [Stack](./patterns/Stack.md)
 * Monotonic Stack
 
 ### [Binary Search](./patterns/BinarySerach.md) ***

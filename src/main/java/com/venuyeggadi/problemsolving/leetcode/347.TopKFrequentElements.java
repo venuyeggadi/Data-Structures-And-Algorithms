@@ -190,7 +190,7 @@ class TopKFrequentElements_Solution3_Way2 {
         for (int num : nums)
             map.put(num, map.getOrDefault(num, 0) + 1);
 
-        ArrayList<Integer>[] bucket = new ArrayList<>[nums.length + 1];
+        ArrayList<Integer>[] bucket = new ArrayList[nums.length + 1];
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             int frequency = entry.getValue();

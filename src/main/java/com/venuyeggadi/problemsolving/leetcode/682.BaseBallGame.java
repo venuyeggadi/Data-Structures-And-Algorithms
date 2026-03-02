@@ -5,42 +5,48 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.stream.Collectors;
 
+
+/**
+ * Stack
+ *
+ * Time: O(n)
+ * Space: O(n)
+ */
 class BaseBallGame_Solution1 {
 
     public int calPoints(String[] operations) {
-        Collection<Integer> resultRecord = applyOperations(operations);
-
-        int sum = 0;
-        for (int score : resultRecord) {
-            sum += score;
-        }
-
-        // using streams
-        // sum = resultRecord.stream().reduce(Integer::sum).orElse(0);
-        // sum = resultRecord.stream().collect(Collectors.summingInt(Integer::intValue));
-        sum = resultRecord.stream().mapToInt(Integer::intValue).sum();
-
-        return sum;
-    }
-
-    private static Collection<Integer> applyOperations(String[] operations) {
         Deque<Integer> stack = new ArrayDeque<>();
-        for (String op : operations) {
-            if (op.equals("+")) {
-                Integer tos = stack.pop();
-                Integer newTos = tos + stack.peek();
-                stack.push(tos);
-                stack.push(newTos);
-            } else if(op.equals("D")) {
-                Integer newTos = 2 * stack.peek();
-                stack.push(newTos);
-            } else if(op.equals("C")) {
-                stack.pop();
-            } else {
-                stack.push(Integer.parseInt(op));
+
+        for (String string : operations) {
+            switch (string) {
+                case "+":
+                    Integer a = stack.pop();
+                    Integer b = stack.peek();
+                    stack.push(a);
+                    stack.push(a + b);
+                    break;
+                case "D":
+                    stack.push(stack.peek() * 2);
+                    break;
+                case "C":
+                    stack.pop();
+                    break;
+                default:
+                    stack.push(Integer.parseInt(string));
             }
         }
 
-        return stack;
+        int sum = 0;
+        for (int num : stack)
+            sum += num;
+
+        // using streams
+        // sum = stack.stream().reduce(0, (a, b) -> a + b);
+        // sum = stack.stream().reduce(0, Integer::sum);
+        // sum = stack.stream().reduce(Integer::sum).orElse(0);
+        // sum = stack.stream().collect(Collectors.summingInt(Integer::intValue));
+        // sum = stack.stream().mapToInt(Integer::intValue).sum();
+
+        return sum;
     }
 }

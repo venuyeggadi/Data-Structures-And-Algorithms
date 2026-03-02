@@ -15,8 +15,16 @@ public class BinarySearch {
         System.out.println(binarySearchRecursive(array, 0, n-1, key));
         scanner.close();
     }
-    
-    //O(log(n)), O(1)
+
+    /**
+     * T(n) = T(n/2) + 1
+     *      = T(n/2^k) + k
+     *      = T(1) + k   (when n = 2^k)
+     *      = log n      (since T(1) = 1)
+     *
+     * Time: O(log n)
+     * Space: O(1)
+     */
     static int binarySearchIterative(int[] array, int key) {
         int start = 0;
         int end = array.length - 1;
@@ -34,14 +42,17 @@ public class BinarySearch {
 
         return -1;
     }
-    
-    //O(log(n)), O(log(n))->to store method calls in stack
+
+    /**
+     * Time: O(log n)
+     * Space: O(log n) to store method calls in stack
+     */
     static int binarySearchRecursive(int[] array, int start, int end, int key) {
         if(start > end)
             return -1;
 
         int mid = start + (end-start)/2;
-        if(array[mid] == key)
+        if (array[mid] == key)
             return mid;
         else if(key < array[mid])
             return binarySearchRecursive(array, start, mid-1, key);
