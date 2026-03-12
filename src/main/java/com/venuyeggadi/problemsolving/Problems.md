@@ -62,9 +62,9 @@
 ## Binary Search - Searching
 * [Binary Search](https://leetcode.com/problems/binary-search/) - [Solution](./leetcode/704.BinarySearch.java)
 * [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) - [Solution](./leetcode/74.SearchA2DMatrix.java)
-* [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) - [Solution]
-* [Search Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) - [Solution]
-* [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - [Solution]
+* [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) - [Solution](./leetcode/875.KokoEatingBananas.java)
+* [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - [Solution](./leetcode/153.FindMinimumInRotatedSortedArray.java)
+* [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) - [Solution](./leetcode/33.SearchInRotatedSortedArray.java)
 * [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) - [Solution]
 * [Find Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - [Solution]
 * [Leetcode Study Plan - Binary Search](https://leetcode.com/study-plan/binary-search/)

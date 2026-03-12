@@ -58,7 +58,7 @@ class GuessNumberHigherOrLower_Solution2 extends GuessGame {
  */
 class GuessNumberHigherOrLower_Solution3 extends GuessGame {
     public int guessNumber(int n) {
-        int left = 0, right = n;
+        int left = 1, right = n;
 
         while (left <= right) {
             int mid1 = left + (right - left) / 3;
@@ -72,10 +72,10 @@ class GuessNumberHigherOrLower_Solution3 extends GuessGame {
             if (guess2 == 0)
                 return mid2;
 
-            if (guess1 > 0 && guess2 < 0) { // OR guess1 + guess2 == 0
+            if (guess1 == 1 && guess2 == -1) { // OR guess1 + guess2 == 0
                 left = mid1 + 1;
                 right = mid2 - 1;
-            } else if (guess1 < 0) {
+            } else if (guess1 == -1) {
                 right = mid1 - 1;
             } else {
                 left = mid2 + 1;

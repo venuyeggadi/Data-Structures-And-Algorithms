@@ -26,21 +26,21 @@ public class BinarySearch {
      * Space: O(1)
      */
     static int binarySearchIterative(int[] array, int key) {
-        int start = 0;
-        int end = array.length - 1;
+        int left = 0;
+        int right = array.length - 1;
         
-        while(start <= end) {
-            int mid = start + (end-start)/2;
+        while(left <= right) {
+            int mid = left + (right - left)/2;
 
             if(key == array[mid])
                 return mid;
             if(key < array[mid])
-                end = mid - 1;
+                right = mid - 1;
             else
-                start = mid + 1;
+                left = mid + 1;
         }
 
-        return -1;
+        return -1; /** return left; for the position to insert if it is missing. */
     }
 
     /**
