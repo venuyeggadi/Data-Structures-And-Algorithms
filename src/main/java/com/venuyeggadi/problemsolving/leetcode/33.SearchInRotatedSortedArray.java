@@ -2,6 +2,15 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 import java.util.Arrays;
 
+
+/**
+ * Bruteforce - Linear Search
+ *
+ * Time: O(n)
+ * Space: O(1)
+ */
+
+
 /**
  * Binary search
  * Intuition
@@ -24,8 +33,8 @@ class SearchInRotatedSortedArray_Solution1 {
         }
 
         int minIndex = l;
-        int left, right;
 
+        int left, right;
         if (target >= nums[minIndex] && target <= nums[nums.length - 1]) {
             left = minIndex;
             right = nums.length - 1;
@@ -47,17 +56,30 @@ class SearchInRotatedSortedArray_Solution1 {
 }
 
 
+/**
+ * Binary Search - One pass
+ * Intuition
+ *      The problem here is know which half to eliminate.
+ *      We can do that by checking if the half is already sorted (continuously increase) and whether it can potentially contain that element or not.
+ *      If it does not contain, we can eliminate that half move to the other half.
+ *
+ *      Note: Given the search range is rotated, When we divide the array at mid, it always holds true that if one half (including mid)
+ *      then the other half (including mid) contains that rotation point (where sorting order is disrupted).
+ *
+ * Time: O(log n)
+ * Space: O(1)
+ */
 class SearchInRotatedSortedArray_Solution2 {
     public int search(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
 
         while (l <= r) {
             int mid = l + (r - l) / 2;
+
             if (nums[mid] == target)
                 return mid;
 
             boolean firstHalfIsContinuous = nums[l] <= nums[mid];
-
             if (firstHalfIsContinuous) {
                 if (target < nums[mid] && target >= nums[l])
                     r = mid - 1;
