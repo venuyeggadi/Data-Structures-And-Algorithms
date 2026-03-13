@@ -2,6 +2,8 @@
 
 ### Java collections framework
 * Frequently used constructors and methods of each data structure.
+* sorted/ ordered set - TreeSet
+* sorted map - TreeMap
 ### Java Streams API
 
 ### Time & Complexity Analysis
@@ -60,7 +62,7 @@
 * BST Insert and Remove
 * Depth-First Search
 * Breadth-First Search
-* BST Sets and Maps
+* BST Sets and Maps (TreeSet, TreeMap), their implementation
 * Trie
 * Union-Find
 * Segment Tree
