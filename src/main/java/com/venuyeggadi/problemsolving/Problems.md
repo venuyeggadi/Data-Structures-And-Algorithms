@@ -66,7 +66,7 @@
 * [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) - [Solution](./leetcode/153.FindMinimumInRotatedSortedArray.java)
 * [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) - [Solution](./leetcode/33.SearchInRotatedSortedArray.java)
 * [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) - [Solution](./leetcode/981.TimeBasedKeyValueStore.java)
-* [Find Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - [Solution]
+* [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) - [Solution](../problemsolving/leetcode/4.MedianOfTwoSortedArrays.java)
 * [Leetcode Study Plan - Binary Search](https://leetcode.com/study-plan/binary-search/)
 
 ## Sorting

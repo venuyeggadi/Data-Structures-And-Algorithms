@@ -32,23 +32,14 @@ class MinimumSizeSubarraySum_Solution1 {
 class MinimumSizeSubarraySum_Solution2 {
     public int minSubArrayLen(int target, int[] nums) {
         int min = Integer.MAX_VALUE;
-        int left = 0, right = 0;
-        int sum = nums[0];
+        int left = 0, sum = 0;
 
-        while (right < nums.length) {
-            if (sum >= target)
+        for (int right = 0; right < nums.length; ++right) {
+            sum += nums[right];
+            while (sum >= target) {
                 min = Math.min(min, right - left + 1);
-
-            if (sum >= target) {
-                sum = sum - nums[left];
-                left++;
-            } else {
-                if (right < nums.length - 1) {
-                    right = right + 1;
-                    sum = sum + nums[right];
-                }
-                else
-                    break;
+                sum -= nums[left];
+                ++left;
             }
         }
 
@@ -57,24 +48,43 @@ class MinimumSizeSubarraySum_Solution2 {
 }
 
 /**
- * Sliding Window
- * Time: O(n)
- * Space: O(1)
+ * Not the optimal solution - just for reference
+ * Prefix Sum + Binary Search
+ * Time: O(n log n)
+ * Space: O(n)
  */
-class MinimumSizeSubarraySum_Solution2_Better {
+class MinimumSizeSubarraySum_Solution3 {
     public int minSubArrayLen(int target, int[] nums) {
-        int min = Integer.MAX_VALUE;
-        int left = 0, sum = 0;
+        int n = nums.length;
+        int[] prefixSum = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
 
-        for (int right = 0; right < nums.length; ++right) {
-            sum += nums[right];
-            while (sum >= target) {
-                min = Math.min(min, right - left + 1);
-                sum -= nums[left++];
+        int result = n + 1;
+        for (int left = 0; left < n; left++) {
+            int right = getRightBound(prefixSum, left, n, target);
+            if (right != n) {
+                result = Math.min(result, right - left + 1);
             }
         }
 
-        return min == Integer.MAX_VALUE ? 0 : min;
+        return result % (n + 1);
+    }
+
+    /** Binary Search */
+    private static int getRightBound(int[] prefixSum, int start, int end, int target) {
+        int left = start;
+        while (start < end) {
+            int mid = (start + end) / 2;
+            int curSum = prefixSum[mid + 1] - prefixSum[left];
+            if (curSum >= target) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+
+        return start;
     }
 }
-

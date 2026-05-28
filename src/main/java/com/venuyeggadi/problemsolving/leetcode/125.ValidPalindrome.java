@@ -31,10 +31,10 @@ package com.venuyeggadi.problemsolving.leetcode;
  */
 
 
-// Solution 1
-/*
-Time complexity: O(n)
-Space complexity: O(n)
+/**
+ * Solution 1
+ * Time complexity: O(n)
+ * Space complexity: O(n)
  */
 class ValidPalindromeSolution1 {
     public boolean isPalindrome(String s) {
@@ -48,9 +48,7 @@ class ValidPalindromeSolution1 {
         }
 
         String cleanString = sb.toString();
-        return cleanString.equals(
-                new StringBuilder(cleanString).reverse().toString()
-        );
+        return cleanString.equals(sb.reverse().toString());
     }
 }
 
@@ -79,11 +77,10 @@ class ValidPalindromeSolution2 {
 }
 
 
-// Solution 2
-/*
-Two Pointers
-Time complexity: O(n)
-Space complexity: O(n)
+/** Solution 2
+ * Two Pointers
+ * Time complexity: O(n)
+ * Space complexity: O(n)
  */
 class ValidPalindromeSolution3 {
     public boolean isPalindrome(String s) {
@@ -92,9 +89,12 @@ class ValidPalindromeSolution3 {
         if (n < 2) return true;
         int left = 0, right = n - 1;
         while (left < right) {
-            while (left < right && !isAlphaNumeric(charArray[left])) left++;
-            while (left < right && !isAlphaNumeric(charArray[right])) right--;
-            if (charArray[left] != charArray[right]) return false;
+            while (left < right && !isAlphaNumeric(charArray[left]))
+                left++;
+            while (left < right && !isAlphaNumeric(charArray[right]))
+                right--;
+            if (charArray[left] != charArray[right])
+                return false;
             left++;
             right--;
 
@@ -109,11 +109,10 @@ class ValidPalindromeSolution3 {
 }
 
 
-// Solution 3
-/*
-Two Pointers
-Time complexity: O(n)
-Space complexity: O(1)
+/** Solution 3
+ * Two Pointers
+ * Time complexity: O(n)
+ * Space complexity: O(1)
  */
 class ValidPalindromeSolution4 {
     public boolean isPalindrome(String s) {
@@ -137,7 +136,7 @@ class ValidPalindromeSolution4 {
         return true;
     }
 }
-// Note that the toLowerCase method can be written as below
+/** The toLowerCase method can be written as below */
 class Util {
     static char toLowerCase(char ch) {
         char diff = 'a' - 'A';

@@ -1,6 +1,6 @@
 package com.venuyeggadi.problemsolving.leetcode;
 
-/*
+/**
  * Given a string s, find the length of the longest substring without repeating characters.
 
  * Example 1:
@@ -24,19 +24,40 @@ package com.venuyeggadi.problemsolving.leetcode;
     * s consists of English letters, digits, symbols and spaces.
  */
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
-// Solution1
-// Sliding Window and Set
-/*
- Time complexity: O(n + n) = O(n) -> 6ms
- Space complexity: O(k) where k is length of the longest substring which is <= 128
-                 = O(1)
+/**
+ * Bruteforce
+ *
+ * Time: O(n * k)
+ * Space: O(k)
+ *      Where n is the length of the string and k is the total number of unique characters in the string.
  */
+class LongestSubstringWithoutRepeatingCharacters_Solution1 {
+    public int lengthOfLongestSubstring(String s) {
+        int res = 0;
+        for (int i = 0; i < s.length(); i++) {
+            Set<Character> charSet = new HashSet<>();
+            for (int j = i; j < s.length(); j++) {
+                if (charSet.contains(s.charAt(j))) {
+                    break;
+                }
+                charSet.add(s.charAt(j));
+            }
+            res = Math.max(res, charSet.size());
+        }
+        return res;
+    }
+}
 
-class LongestSubstringWithoutRepeatingCharactersSolution1 {
+/**
+ * Sliding Window and Set
+ *
+ * Time: O(n + n) = O(n)
+ * Space : O(k)
+ *          where k is length of the longest substring which is <= 128 (unique ASCII characters) = O(1)
+ */
+class LongestSubstringWithoutRepeatingCharacters_Solution2 {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() <= 1)
             return s.length();
@@ -61,41 +82,33 @@ class LongestSubstringWithoutRepeatingCharactersSolution1 {
     }
 }
 
-// Solution2
-// Sliding Window and character look up array
-/*
- Time complexity: O(n + n) = O(n) -> 2ms
- Space complexity: O(128) = O(1)
- */
-class LongestSubstringWithoutRepeatingCharactersSolution2 {
+class LongestSubstringWithoutRepeatingCharacters_Solution2_Better {
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() <= 1)
-            return s.length();
+        Set<Character> set = new HashSet<>();
+        int max = 0;
 
-        char[] charArr = s.toCharArray();
-        boolean[] charExists = new boolean[128];
+        int left = 0;
+        for (int right = 0; right < s.length(); ++right) {
+            char ch = s.charAt(right);
+            while (set.contains(ch))
+                set.remove(s.charAt(left++));
 
-        int startIndex = 0;
-        int maxLength = 0;
-        for (int endIndex = 0; endIndex < s.length(); endIndex++) {
-            if (!charExists[charArr[endIndex]]) {
-                charExists[charArr[endIndex]] = true;
-                maxLength = Math.max(maxLength, endIndex - startIndex + 1);
-            } else {
-                while (charExists[charArr[endIndex]]) {
-                    charExists[charArr[startIndex]] = false;
-                    startIndex++;
-                }
-                charExists[charArr[endIndex]] = true;
-            }
+            set.add(ch);
+            max = Math.max(max, right - left + 1); // Math.max(max, set.size())
         }
 
-        return maxLength;
+        return max;
     }
 }
 
-// Time taken -> 1ms
-class LongestSubstringWithoutRepeatingCharactersSolution2Refactored {
+
+/**
+ * Sliding Window and character look up array
+ *
+ * Time: O(n + n) = O(n)
+ * Space: O(128) = O(1)
+ */
+class LongestSubstringWithoutRepeatingCharacters_Solution2_Way1 {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() <= 1)
             return s.length();
@@ -118,30 +131,32 @@ class LongestSubstringWithoutRepeatingCharactersSolution2Refactored {
     }
 }
 
-
-// Solution 3
-// Sliding Window and Last Seen
-/*
- Instead just remembering whether a character already exists in the current window,
- remember the positions at which we saw a character last. So that we can calculate the substring from the last seen location.
-*/
-/*
- Time complexity: O(n + n) = O(n)
- Space complexity: O(128) = O(1)
+/**
+ * Sliding Window and Last Seen
+ *
+ * Intuition:
+ * Instead just remembering whether a character already exists in the current window,
+ * remember the positions at which we saw a character last.
+ * So that we can calculate the substring from the last seen location.
+ *
+ * Time: O(n)
+ * Space: O(k)
  */
-class LongestSubstringWithoutRepeatingCharactersSolution3 {
+class LongestSubstringWithoutRepeatingCharacters_Solution3_Map {
     public int lengthOfLongestSubstring(String s) {
-        int maxLength = 0;
-        int startIndex = -1; // lastSeenAt        // s[j+1...i] has no repeating chars.
-        int[] lastSeen = new int[128]; // lastSeen[c] := index at which c appeared last time
-        Arrays.fill(lastSeen, -1);
+        Map<Character, Integer> map = new HashMap<>();
+        int l = 0;
+        int max = 0;
 
-        for (int endIndex = 0; endIndex < s.length(); ++endIndex) {
-            startIndex = Math.max(startIndex, lastSeen[s.charAt(endIndex)]);
-            maxLength = Math.max(maxLength, endIndex - startIndex);
-            lastSeen[s.charAt(endIndex)] = endIndex;
+        for (int r = 0; r < s.length(); ++r) {
+            char ch = s.charAt(r);
+            if (map.containsKey(ch)) {
+                l = Math.max(map.get(ch) + 1, l);
+            }
+            map.put(ch, r);
+            max = Math.max(max, r - l + 1);
         }
 
-        return maxLength;
+        return max;
     }
 }

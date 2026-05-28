@@ -35,14 +35,16 @@ package com.venuyeggadi.problemsolving.leetcode;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-// Solution 1
-/*
-Binary Search
-Time complexity: O(n * log(n)) = O(nlog(n))
-Space complexity: O(1)
+/**
+ * Binary Search
+ *
+ * Time complexity: O(n * log(n)) = O(nlog(n))
+ * Space complexity: O(1)
  */
-class TwoSumIISolution1 {
+class TwoSumII_Solution1 {
     public int[] twoSum(int[] numbers, int target) {
         int length = numbers.length;
 
@@ -57,13 +59,34 @@ class TwoSumIISolution1 {
 }
 
 
-// Solution 2
-/*
-Two pointers
-Time Complexty: O(n)
-Space Complexity: O(1)
+/**
+ * HashMap
+ *
+ * Time: O(n)
+ * Space: O(n)
  */
-class TwoSumIISolution2 {
+class TwoSumII_Solution2 {
+    public int[] twoSum(int[] numbers, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < numbers.length; ++i) {
+            int complement = target - numbers[i];
+            if (map.containsKey(complement))
+                return new int[]{ map.get(complement) + 1, i + 1};
+            map.put(numbers[i], i);
+        }
+
+        return new int[]{ -1, -1 };
+    }
+}
+
+/**
+ * Two pointers
+ *
+ * Time: O(n)
+ * Space: O(1)
+ */
+class TwoSumII_Solution3 {
     public int[] twoSum(int[] numbers, int target) {
         int length = numbers.length;
         int leftIndex = 0, rightIndex = length - 1;
@@ -82,11 +105,10 @@ class TwoSumIISolution2 {
     }
 }
 
-// Solution 2
-/*
-Since there always exist a solution, we can write as below with same time and space complexity.
+/**
+ * Since there always exist a solution, we can write as below with same time and space complexity.
  */
-class TwoSumIISolution2SpecificToProblem {
+class TwoSumII_Solution2_SpecificToProblem {
     public int[] twoSum(int[] numbers, int target) {
         int leftIndex = 0;
         int rightIndex = numbers.length - 1;
