@@ -128,7 +128,7 @@ class RemoveElement_Solution3 {
  */
 class RemoveElement_Solution4 {
     public int removeElement(int[] nums, int val) {
-        int startIndex = 0, endIndex = nums.length-1;
+        int startIndex = 0, endIndex = nums.length - 1;
 
         while(startIndex <= endIndex) {
             if(nums[startIndex] == val)
@@ -137,6 +137,6 @@ class RemoveElement_Solution4 {
                 startIndex++;
         }
         
-        return startIndex; //or return endIndex + 1
+        return endIndex - 1; // or startIndex;
     }
 }

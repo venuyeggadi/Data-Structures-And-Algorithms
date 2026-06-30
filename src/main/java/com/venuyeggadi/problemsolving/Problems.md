@@ -24,13 +24,13 @@
 * [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) - [Solution](./leetcode/167.TwoSumII.java)
 * [3Sum](https://leetcode.com/problems/3sum/) - [Solution](./leetcode/15.ThreeSum.java)
 * [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) - [Solution](./leetcode/11.ContainerWithMostWater.java)
+* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java) ***
 * [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) - [Solution](./leetcode/42.TrappingRainWater.java) ***
 
 ## Sliding Window
-* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java) ***
 * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution](./leetcode/3.LongestSubstringWithoutRepeatingCharacters.java)
-* [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution]
-* [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution]
+* [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution](./leetcode/424.LongestRepeatingCharacterReplacement.java)
+* [Permutation in String](https://leetcode.com/problems/permutation-in-string/) - [Solution](./leetcode/567.PermutationInString.java)
 * [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) - [Solution]
 * [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) - [Solution]
 
@@ -163,6 +163,7 @@
 * [Word Break](https://leetcode.com/problems/word-break/) - [Solution]
 * [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) - [Solution]
 * [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) - [Solution]
+* [Best Time to Buy & Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) - [Solution](./leetcode/121.BestTimeToBuyAndSellStock.java) ***
 
 ## 2-D Dynamic Programming
 * [Unique Paths](https://leetcode.com/problems/unique-paths/) - [Solution](./leetcode/62.UniquePaths.java)

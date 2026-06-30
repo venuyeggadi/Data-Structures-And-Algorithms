@@ -1,4 +1,7 @@
 package com.venuyeggadi.problemsolving.leetcode;
+
+import java.util.TreeSet;
+
 /* Given an integer array nums sorted in non-decreasing order, remove the
    duplicates in-place such that each unique element appears only once.
    The relative order of the elements should be kept the same.
@@ -45,8 +48,6 @@ package com.venuyeggadi.problemsolving.leetcode;
    * nums is sorted in non-decreasing order.
 */
 
-import java.util.TreeSet;
-
 /**
  * Bruteforce
  * Determine unique elements using set and then sort them again.
@@ -82,8 +83,8 @@ class RemoveDuplicatesFromSortedArray_Solution2 {
             return 0;
         
         int uniqueIndex = 1;
-        for(int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
-            if(nums[searchIndex] != nums[searchIndex-1]) {
+        for (int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
+            if(nums[searchIndex] != nums[searchIndex - 1]) {
                 nums[uniqueIndex++] = nums[searchIndex];
             }
         }
@@ -98,14 +99,15 @@ class RemoveDuplicatesFromSortedArray_Solution2_Way2 {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0)
             return 0;
-        
-        int index = 0;
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[index]) {
-                nums[++index] = nums[i];
+
+        int uniqueNumberIndex = 0;
+
+        for (int index = 1; index < nums.length; ++index) {
+            if (nums[index] != nums[uniqueNumberIndex]) {
+                nums[++uniqueNumberIndex] = nums[index];
             }
         }
-        
-        return index + 1;
+
+        return uniqueNumberIndex + 1;
     }
 }

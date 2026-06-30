@@ -1,12 +1,12 @@
 ## Arrays & Hashing
 
 ### Static Arrays
-| Operation           | Big-O Time |
-|---------------------|------------|
-| r/w i-th element    | O(1)       |
-| Insert / Remove End | O(1)       |
-| Insert Middle       | O(n)       |
-| Remove Middle       | O(n)       |
+| Operation                                                      | Big-O Time |
+|----------------------------------------------------------------|------------|
+| r/w i-th element                                               | O(1)       |
+| Insert / Remove End (Assuming that space is already available) | O(1)       |
+| Insert Middle                                                  | O(n)       |
+| Remove Middle                                                  | O(n)       |
 
 * In-place changes, Two pointers
 * Problems
@@ -51,7 +51,7 @@
 * Problems
   * [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) - [Solution](../problemsolving/leetcode/209.MinimumSizeSubarraySum.java)
   * [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) - [Solution](../problemsolving/leetcode/3.LongestSubstringWithoutRepeatingCharacters.java)
-  * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution]()
+  * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) - [Solution](../problemsolving/leetcode/424.LongestRepeatingCharacterReplacement.java)
 
 ### Sliding Window Template
 ```java
