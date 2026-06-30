@@ -1,6 +1,6 @@
 package com.venuyeggadi.problemsolving.leetcode;
 
-/*
+/**
  * You are given an array prices where prices[i] is the price of a given stock on the ith day.
  * You want to maximize your profit by choosing a single day to buy one stock and choosing
    a different day in the future to sell that stock.
@@ -24,14 +24,14 @@ package com.venuyeggadi.problemsolving.leetcode;
 
  */
 
-// Solution 1
-// Bruteforce
-// Time Limit Exceeded
-/*
-  Time complexity: O(n^2)
-  Space complexity: O(1)
+
+/**
+ * Bruteforce - Time Limit Exceeded
+ *
+ * Time: O(n^2)
+ * Space: O(1)
  */
-class BestTimeToBuyAndSellStockSolution1 {
+class BestTimeToBuyAndSellStock_Solution1 {
     public int maxProfit(int[] prices) {
         int length = prices.length;
         int maxProfit = 0; // Because we need to return 0 if no profit can be made
@@ -49,13 +49,13 @@ class BestTimeToBuyAndSellStockSolution1 {
 }
 
 
-// Solution 2
-// Sliding Window
-/*
-  Time complexity: O(n)
-  Space complexity: O(1)
+/**
+ * Two pointers
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
  */
-class BestTimeToBuyAndSellStockSolution2 {
+class BestTimeToBuyAndSellStock_Solution2 {
     public int maxProfit(int[] prices) {
         int maxProfit = 0;
         int buyAt = prices[0];
@@ -68,5 +68,53 @@ class BestTimeToBuyAndSellStockSolution2 {
         }
 
         return maxProfit;
+    }
+}
+
+/**
+ * Two pointers - more intuitive
+ */
+class BestTimeToBuyAndSellStock_Solution2_Way2 {
+    public int maxProfit(int[] prices) {
+        if (prices.length < 2)
+            return 0;
+
+        int max = 0;
+        int l = 0;
+
+        for (int r = 1; r < prices.length; ++r) {
+            if (prices[r] < prices[l]) {
+                l = r;
+                continue;
+            }
+            max = Math.max(max, prices[r] - prices[l]);
+        }
+
+        return max;
+    }
+}
+
+
+/** Solution 2 and 3 are more or less the same /
+
+/**
+ * Dynamic programming
+ * Intuition:
+ *      For every price, find the difference between that price and the minimum price left to it.
+ *
+ * Time: O(n)
+ * Space: O(1)
+ */
+class BestTimeToBuyAndSellStock_Solution3 {
+    public int maxProfit(int[] prices) {
+        int max = 0;
+        int buy = prices[0];
+
+        for (int price : prices) {
+            max = Math.max(max, price - buy); /** Order of these two statements can be interchanged */
+            buy = Math.min(buy, price);
+        }
+
+        return max;
     }
 }
